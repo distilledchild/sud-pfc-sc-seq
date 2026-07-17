@@ -1,0 +1,41 @@
+[2026-07-17 01:07:30] Loading Parse DGE matrix and metadata
+'as(<dgTMatrix>, "dgCMatrix")' is deprecated.
+Use 'as(., "CsparseMatrix")' instead.
+See help("Deprecated") and help("Matrix-deprecated").
+[2026-07-17 01:07:30] Creating Seurat object with min.features=300 and min.cells=5
+Warning: Feature names cannot have underscores ('_'), replacing with dashes ('-')
+[2026-07-17 01:07:31] Seurat import retained 1838 barcodes and 12890 genes
+Warning: Default search for "data" layer in "RNA" assay yielded no results; utilizing "counts" layer instead.
+[2026-07-17 01:07:31] Applying legacy upper-bound QC thresholds
+[2026-07-17 01:07:31] QC retained 1790/1838 barcodes (removed 48)
+Warning: Default search for "data" layer in "RNA" assay yielded no results; utilizing "counts" layer instead.
+[2026-07-17 01:07:32] Normalizing, selecting 2,000 variable genes, scaling, and running PCA
+[2026-07-17 01:07:33] Running clustering resolution sweep
+[2026-07-17 01:07:33] Resolution 0.2 produced 7 clusters
+[2026-07-17 01:07:33] Resolution 0.4 produced 8 clusters
+[2026-07-17 01:07:33] Resolution 0.6 produced 8 clusters
+[2026-07-17 01:07:34] Resolution 0.8 produced 10 clusters
+[2026-07-17 01:07:34] Resolution 1.0 produced 10 clusters
+[2026-07-17 01:07:34] Resolution 1.2 produced 11 clusters
+[2026-07-17 01:07:34] Resolution 1.5 produced 12 clusters
+[2026-07-17 01:07:34] Selected conservative resolution 0.6 with 8 raw clusters; legacy resolution 1.5 produced 12 clusters (minimum size 2)
+[2026-07-17 01:07:34] Running UMAP
+Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
+To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
+This message will be shown once per session
+[2026-07-17 01:07:36] Building primary cluster tree and reproducible tree-based labels
+[2026-07-17 01:07:37] Finding positive cluster markers
+For a (much!) faster implementation of the Wilcoxon Rank Sum Test,
+(default method for FindMarkers) please install the presto package
+--------------------------------------------
+install.packages('devtools')
+devtools::install_github('immunogenomics/presto')
+--------------------------------------------
+After installation of presto, Seurat will automatically use the more
+efficient implementation (no further action necessary).
+This message will be shown once per session
+[2026-07-17 01:07:39] Calculating marker-panel scores by cluster
+[2026-07-17 01:07:40] Building barcode-level Scanpy crosswalk
+[2026-07-17 01:07:40] Saving final object and reproducibility metadata
+[2026-07-17 01:07:46] Analysis complete
+[2026-07-17 01:07:46] Output directory: /Users/pete/Desktop/playground/sud-pfc-sc-seq/analysis_results/seurat_reanalysis_2026

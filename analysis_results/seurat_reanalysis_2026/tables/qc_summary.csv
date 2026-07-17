@@ -1,0 +1,9 @@
+metric,value
+barcodes_after_minimum_feature_import,1838
+genes_after_minimum_cell_import,12890
+barcodes_after_upper_bound_qc,1790
+barcodes_removed_by_upper_bound_qc,48
+barcode_retention_fraction,0.9738846572361263
+median_features_after_qc,562
+median_counts_after_qc,773
+median_percent_mt_after_qc,0.33783783783783783

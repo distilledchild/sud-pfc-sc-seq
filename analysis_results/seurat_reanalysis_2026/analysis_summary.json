@@ -1,0 +1,72 @@
+{
+  "analysis_name": "SUD-PFC Seurat reanalysis",
+  "created_at": "2026-07-17T01:07:46-0500",
+  "random_seed": 42,
+  "project_root": "/Users/pete/Desktop/playground/sud-pfc-sc-seq",
+  "run_id": "mclover3_D10_12_2024-07-09",
+  "sample_id": "F344_SHR_M_E007_E118",
+  "input": {
+    "barcodes": 1903,
+    "genes": 41802,
+    "nonzero_counts": 1253743
+  },
+  "qc": {
+    "imported_barcodes": 1838,
+    "filtered_barcodes": 1790,
+    "removed_barcodes": 48,
+    "retention_fraction": 0.973885,
+    "thresholds": {
+      "minimum_features_at_import": 300,
+      "minimum_cells_per_gene_at_import": 5,
+      "maximum_features": 2000,
+      "maximum_counts": 3000,
+      "maximum_percent_mt": 3
+    }
+  },
+  "dimension_reduction": {
+    "variable_genes": 2000,
+    "pcs_used": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+    "umap_neighbors": 30,
+    "umap_min_dist": 0.3
+  },
+  "clustering": {
+    "algorithm": "Louvain algorithm 1",
+    "primary": {
+      "resolution": 0.6,
+      "raw_cluster_count": 8,
+      "tree_cluster_count": 8,
+      "minimum_cluster_size": 90,
+      "ari_vs_archived_scanpy": 0.589216,
+      "mean_pca_silhouette": 0.074988,
+      "technical_well_cramers_v": 0.091385
+    },
+    "legacy_target": {
+      "resolution": 1.5,
+      "observed_cluster_count": 12,
+      "minimum_cluster_size": 2,
+      "ari_vs_archived_scanpy": 0.424827,
+      "mean_pca_silhouette": 0.060849,
+      "technical_well_cramers_v": 0.114991
+    },
+    "selection_rationale": "Resolution 0.6 retained at least 90 barcodes per cluster and had the highest agreement with the archived Scanpy partition; resolution 1.5 was retained as a legacy sensitivity result.",
+    "resolution_sweep": {
+      "0.2": 7,
+      "0.4": 8,
+      "0.6": 8,
+      "0.8": 10,
+      "1": 10,
+      "1.2": 11,
+      "1.5": 12
+    }
+  },
+  "markers": {
+    "all_marker_rows": 1133,
+    "top_marker_rows": 160,
+    "provisional_annotation_rule": "top panel z >= 0.5, margin >= 0.25, and mean detection >= 0.02"
+  },
+  "scanpy_crosswalk": {
+    "matched_barcodes": 1790,
+    "adjusted_rand_index": 0.589216
+  },
+  "limitations": ["One combined biological sample label; technical wells are not biological replicates.", "Doublet filtering was not applied because a validated platform-specific expected doublet rate was not archived.", "Provisional marker-panel labels require manual and reference-based review.", "Resolution 0.6 is a conservative computational choice, not proof of eight biological cell types.", "Resolution 1.5 produced 12 rather than 14 clusters and included a two-barcode outlier cluster."]
+}

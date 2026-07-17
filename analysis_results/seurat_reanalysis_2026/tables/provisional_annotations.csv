@@ -1,0 +1,9 @@
+cluster,top_panel,top_expression_z,top_detection_fraction,runner_up_panel,runner_up_expression_z,score_margin,candidate_label,evidence_status,barcodes
+1,Oligodendrocyte,2.464906230188705,0.2911392405063291,OPC,2.457034277635566,0.007871952553139216,Unresolved,Computational candidate; requires marker and reference review,158
+2,Inhibitory_neuron,1.4749169697856828,0.2462962962962963,Pericyte_VSMC,0.6256265115101192,0.8492904582755636,Inhibitory_neuron,Computational candidate; requires marker and reference review,90
+3,Microglia,-0.10294251874847239,0.004901960784313725,OPC,-0.14639739004628585,0.04345487129781346,Unresolved,Computational candidate; requires marker and reference review,136
+4,Inhibitory_neuron,1.4504203193246143,0.2157738095238095,Microglia,0.05652656351057751,1.3938937558140367,Inhibitory_neuron,Computational candidate; requires marker and reference review,112
+5,Excitatory_neuron,0.23069551205339997,0.08419117647058824,Oligodendrocyte,-0.185074447363769,0.415769959417169,Unresolved,Computational candidate; requires marker and reference review,340
+6,Inhibitory_neuron,-0.1904624736603967,0.12470657276995305,OPC,-0.3057396174410673,0.11527714378067061,Unresolved,Computational candidate; requires marker and reference review,568
+7,Excitatory_neuron,2.2515171630632436,0.16705607476635514,Pericyte_VSMC,0.00913952609237278,2.242377636970871,Excitatory_neuron,Computational candidate; requires marker and reference review,214
+8,Excitatory_neuron,0.33104010864892136,0.08938953488372094,Pericyte_VSMC,0.03446193165095988,0.29657817699796146,Unresolved,Computational candidate; requires marker and reference review,172
