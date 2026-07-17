@@ -17,10 +17,19 @@ options(stringsAsFactors = FALSE)
 set.seed(42)
 
 args <- commandArgs(trailingOnly = TRUE)
+script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
+default_project_root <- if (length(script_arg) > 0) {
+  dirname(dirname(normalizePath(
+    sub("^--file=", "", script_arg[[1]]),
+    mustWork = TRUE
+  )))
+} else {
+  normalizePath(getwd(), mustWork = TRUE)
+}
 project_root <- if (length(args) >= 1) {
   normalizePath(args[[1]], mustWork = TRUE)
 } else {
-  normalizePath("~/Desktop/playground/sud-pfc-sc-seq", mustWork = TRUE)
+  default_project_root
 }
 output_root <- if (length(args) >= 2) {
   normalizePath(args[[2]], mustWork = FALSE)

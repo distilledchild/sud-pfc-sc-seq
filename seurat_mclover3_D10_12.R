@@ -1,60 +1,85 @@
-#reference 
-#https://nbisweden.github.io/workshop-scRNAseq/labs/seurat/seurat_01_qc.html#meta-qc_doublet
-#https://support.parsebiosciences.com/hc/en-us/articles/360053078092-Seurat-Tutorial-65k-PBMCs
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(Seurat)
+  library(Matrix)
+  library(DoubletFinder)
+})
 
-
-
-library(Seurat)
-library(dplyr)
-library(tibble)
-library(Matrix)
-library(ggplot2)
-library(DoubletFinder)
-library(devtools)
+# References:
+# https://nbisweden.github.io/workshop-scRNAseq/labs/seurat/seurat_01_qc.html#meta-qc_doublet
+# https://support.parsebiosciences.com/hc/en-us/articles/360053078092-Seurat-Tutorial-65k-PBMCs
 
 rm(list = ls())
+options(stringsAsFactors = FALSE)
 
+args <- commandArgs(trailingOnly = TRUE)
+script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
+default_project_root <- if (length(script_arg) > 0) {
+  dirname(normalizePath(sub("^--file=", "", script_arg[[1]]), mustWork = TRUE))
+} else {
+  normalizePath(getwd(), mustWork = TRUE)
+}
+project_root <- if (length(args) >= 1) {
+  normalizePath(args[[1]], mustWork = TRUE)
+} else {
+  default_project_root
+}
+run_id <- "mclover3_D10_12_2024-07-09"
+sample_id <- "F344_SHR_M_E007_E118"
+data_root <- file.path(project_root, "data")
+output_root <- if (length(args) >= 2) {
+  normalizePath(args[[2]], mustWork = FALSE)
+} else {
+  file.path(project_root, "legacy_results", run_id)
+}
+data_path <- file.path(output_root, "objects")
+fig_path <- file.path(output_root, "figures")
+table_path <- file.path(output_root, "tables")
 
-data_path <- "C:/workspace/Seurat/mclover3/data/"
-fig_path <- "C:/workspace/Seurat/mclover3/figure/"
+dir.create(data_path, recursive = TRUE, showWarnings = FALSE)
+dir.create(fig_path, recursive = TRUE, showWarnings = FALSE)
+dir.create(table_path, recursive = TRUE, showWarnings = FALSE)
 
-# Convenience functions
-SaveFigure <- function(plots, name, type = "png", width, height, res){
-  if(type == "png") {
-    png(paste0(fig_path, name, ".", type),
-        width = width, height = height, units = "in", res = 200)
+SaveFigure <- function(plots, name, type = "png", width, height, res = 200) {
+  output_file <- file.path(fig_path, paste0(name, ".", type))
+  if (type == "png") {
+    png(output_file, width = width, height = height, units = "in", res = res)
   } else {
-    pdf(paste0(fig_path, name, ".", type),
-        width = width, height = height)
+    pdf(output_file, width = width, height = height)
   }
   print(plots)
   dev.off()
 }
 
-SaveObject <- function(object, name){
-  saveRDS(object, paste0(data_path, name, ".RDS"))
+SaveObject <- function(object, name) {
+  saveRDS(object, file.path(data_path, paste0(name, ".RDS")))
 }
 
-ReadObject <- function(name){
-  readRDS(paste0(data_path, name, ".RDS"))
+ReadObject <- function(name) {
+  readRDS(file.path(data_path, paste0(name, ".RDS")))
 }
 
-DGE_folder <- "C:/workspace/Seurat/mclover3/mclover3_D10_12_2024-07-09/DGE_filtered/"
-#DGE_folder <- "C:/workspace/Seurat/mclover3/mclover3_target_well_2024-06-14/DGE_filtered/"
-#DGE_folder <- "C:/Users/jhuang45/Downloads/parse_splitseq_pipleline/all-sample/DGE_filtered/"
-#DGE_folder <- "C:/Users/jhuang45/Downloads/DGE_filtered_20231213/"
+DGE_folder <- file.path(
+  data_root,
+  run_id,
+  "raw",
+  sample_id,
+  "DGE_filtered"
+)
+
 # split-pipe versions older than 1.1.0 used "DGE.mtx"
-mat <- readMM(paste0(DGE_folder, "count_matrix.mtx"))
+mat <- readMM(file.path(DGE_folder, "count_matrix.mtx"))
 
-cell_meta <- read.delim(paste0(DGE_folder, "cell_metadata.csv"),
+cell_meta <- read.delim(file.path(DGE_folder, "cell_metadata.csv"),
                         stringsAsFactor = FALSE, sep = ",")
-genes <- read.delim(paste0(DGE_folder, "all_genes.csv"),
+
+genes <- read.delim(file.path(DGE_folder, "all_genes.csv"),
                     stringsAsFactor = FALSE, sep = ",")
 
 cell_meta$bc_wells <- make.unique(cell_meta$bc_wells, sep = "_dup")
 rownames(cell_meta) <- cell_meta$bc_wells
-genes$gene_name <- make.unique(genes$gene_name, sep = "_dup")
 
+genes$gene_name <- make.unique(genes$gene_name, sep = "_dup")
 # Setting column and rownames to expression matrix
 colnames(mat) <- genes$gene_name
 rownames(mat) <- rownames(cell_meta)
@@ -66,10 +91,9 @@ mat_t <- mat_t[(rownames(mat_t) != ""),]
 # Seurat version 5 or greater uses "min.features" instead of "min.genes"
 all_sample <- CreateSeuratObject(mat_t, min.features = 300, min.cells = 5, meta.data = cell_meta)
 
-# Setting our initial cell class to a single type, this will changer after clustering. 
+# Setting our initial cell class to a single type, this will changer after clustering.
 all_sample@meta.data$orig.ident <- factor(rep("all_sample", nrow(all_sample@meta.data)))
 Idents(all_sample) <- all_sample@meta.data$orig.ident
-
 #SaveObject(all_sample, "seurat_obj_before_QC")
 #all_sample <- ReadObject("seurat_obj_before_QC")
 
@@ -146,23 +170,42 @@ all_sample <- BuildClusterTree(all_sample, reorder = TRUE, reorder.numeric = TRU
 #SaveObject(all_sample, "seurat_obj_after_cluster_illumina")
 #all_sample <- ReadObject("seurat_obj_after_cluster_illumina")
 
-cluster <- all_sample@meta.data %>% 
+cluster <- all_sample@meta.data %>%
   rownames_to_column("barcodes") %>%
   select(barcodes, tree.ident)
 colnames(cluster) <- c('barcode', 'cluster.mclover3')
-write.csv(cluster, "cluster_mclover3.csv",row.names = FALSE)
+write.csv(
+  cluster,
+  file.path(table_path, "cluster_mclover3.csv"),
+  row.names = FALSE
+)
 
-cluster_well <- all_sample@meta.data %>% 
+cluster_well <- all_sample@meta.data %>%
   rownames_to_column("barcodes") %>%
   select(barcodes, tree.ident,bc_wells,bc1_well,bc2_well,bc3_well)
-colnames(cluster_well) <- c('barcode', 'cluster.mclover3')
-write.csv(cluster_well, "cluster_mclover3.csv",row.names = FALSE)
+colnames(cluster_well) <- c(
+  "barcode",
+  "cluster.mclover3",
+  "bc_wells",
+  "bc1_well",
+  "bc2_well",
+  "bc3_well"
+)
+write.csv(
+  cluster_well,
+  file.path(table_path, "cluster_mclover3_with_wells.csv"),
+  row.names = FALSE
+)
 
 a<-cluster_well[c("barcodes","bc1_well")]
 unique(a)
 
 all_sample <- RunUMAP(all_sample, dims = 1:30)
-pdf(file="umap_mclover3_resolution_50.pdf", width=4.4,height=4.76)
+pdf(
+  file = file.path(fig_path, "umap_mclover3_resolution_50.pdf"),
+  width = 4.4,
+  height = 4.76
+)
 DimPlot(all_sample, reduction = "umap", label = TRUE)+ NoLegend()
 VlnPlot(all_sample, features = c("Drd1", "Drd2","Pde4b"), group.by = "tree.ident")
 dev.off()
@@ -223,7 +266,7 @@ vip20<-to_plot_top20[top20.idx]
 vip20
 DotPlot(all_sample, features = vip20, group.by = "tree.ident") + coord_flip()
 
-#glutamatergic<-str_to_title(c("CRACDL","RP11-213B3.1","IQCJ-SCHIP1","LINC02822","NWD2","SV2B","LINC00513","RP11-36B6.2","HSPA12A","MIR222HG","LY86-AS1","RP11-191L9.4","RP11-1263C18.2","IQSEC2","RP5-1015P16.1","AC114765.1","LINC01378","AC067956.1","NEFL","RP11-147G16.1","AC011288.2","TESPA1","RP11-170M17.1","COPG2IT1","CBLN2")) 
+#glutamatergic<-str_to_title(c("CRACDL","RP11-213B3.1","IQCJ-SCHIP1","LINC02822","NWD2","SV2B","LINC00513","RP11-36B6.2","HSPA12A","MIR222HG","LY86-AS1","RP11-191L9.4","RP11-1263C18.2","IQSEC2","RP5-1015P16.1","AC114765.1","LINC01378","AC067956.1","NEFL","RP11-147G16.1","AC011288.2","TESPA1","RP11-170M17.1","COPG2IT1","CBLN2"))
 glutamatergic_neuron<-str_to_title(c("LRRC7","SATB2","MYT1L","ARPP21","NELL2","GRIN2B","NKAIN2","PTPRD","GRM5","KHDRBS2","CSMD1","MIR137HG","SLC4A10","RBFOX1","SNTG1","KCNH7","DLGAP1","GRM7","GRIA1","GABBR2","FRMPD4","FAT3","LRRTM4","ROBO2","SV2B","DSCAM","CSMD3","CACNA1B","TMEM132B","CAMK2A","ASIC2","CABP1","CACNA1E","CDH18","RALYL","GRIA3","DLGAP2","KCNH1","RBFOX3","PPP2R2C","SYT16","STXBP5L","CDH10","DCLK1","OLFM3","KIAA1549L","NETO1","GRIN1","PTPRN2","SPTBN4","SH3GL2","GABRB2","BASP1-AS1","HECW1","MMP16","GABRB3","VSNL1","LRFN5","CRACDL","NMNAT2","TNR","SCN8A","KCNC2","GABRG2","GRIA2","LINC01250","KCNQ3","CNTNAP5","DGCR5","KSR2","MDGA2","SYN2","SHISA9","SCN1A","SLIT1","DNM1","ANKS1B","AK5","LINC01122","FAM153CP","GABRG3","GRIN2A","KHDRBS3","RP1-232L24.3","ATP8A2","CHRM3","TAFA1","PEX5L","MIAT","KCNQ5","UNC5D","NDST3","CDH8","FRRS1L","SLC44A5","GPR158","LRFN2","OPCML","TAFA2","CACNG3"))
 top20.idx<-to_plot_top20 %in% glutamatergic_neuron
 glut20<-to_plot_top20[top20.idx]
@@ -292,11 +335,11 @@ new_id_list <- list("Cer.Cort.Endot.Cell" = 1, "Slc7a10" = 2, "Adgrl4" = 3, "Sst
                     "LOC103692065" = 12, "Lamp5.Gab.Cort +Sncg.Gab.Cort+Vip.Gab.Cort.Interneuron"=c(13,14))
 
 #new_ids <- c("Astrocyte", "Loc103692025", "Reln", "Near.Proj.Glut.Cort.Neuron","Plp1","Il1rapl2","Loc108353456",
-#             "Glut.Neuron", "Cort.Proj.Glut.Cort. + L6b.Glut.Cort.Neuron", "Cer.Cort.Endot.Cell", "Microglial.Cell+Cent.Nerv.Sys.Macrophage", 
+#             "Glut.Neuron", "Cort.Proj.Glut.Cort. + L6b.Glut.Cort.Neuron", "Cer.Cort.Endot.Cell", "Microglial.Cell+Cent.Nerv.Sys.Macrophage",
 #             "Gab+Lamp5.Gab.Cort +Sncg.Gab.Cort+Vip.Gab.Cort.Interneuron")
 
 #new_id_list <- list(Astrocyte = 1, Loc103692025 = 2, Reln = 4,Near.Proj.Glut.Cort.Neuron = 6,Plp1 = 8,Il1rapl2 = 9,Loc108353456=11,
-#                    Glut.Neuron = c(7,12), Cort.Proj.Glut.Cort_L6b.Glut.Cort.Neuron = 5, Cer.Cort.Endot.Cell = 3, Microglial.Cell_Cent.Nerv.Sys.Macrophage = 10, 
+#                    Glut.Neuron = c(7,12), Cort.Proj.Glut.Cort_L6b.Glut.Cort.Neuron = 5, Cer.Cort.Endot.Cell = 3, Microglial.Cell_Cent.Nerv.Sys.Macrophage = 10,
 #                    Gab_Lamp5.Gab.Cort_Sncg.Gab.Cort_Vip.Gab.Cort.Interneuron=c(13,14))
 #new_id_list[[8]]
 #which(is.na(all_sample@meta.data$tree.ident))
@@ -315,6 +358,6 @@ Idents(all_sample) <- all_sample@meta.data$collapsed
 
 names(new_ids) <- levels(all_sample)
 all_sample <- RenameIdents(all_sample, new_ids)
-pdf (file="umap_mclover3.pdf", width=6, height=6)
+pdf(file = file.path(fig_path, "umap_mclover3.pdf"), width = 6, height = 6)
 DimPlot(all_sample, reduction = "umap", label = TRUE) + NoLegend() #NoAxes() + NoLegend()
 dev.off()
