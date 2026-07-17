@@ -1,0 +1,2 @@
+# Preserve archived pipeline logs byte-for-byte.
+provenance/**/*.log -text -diff

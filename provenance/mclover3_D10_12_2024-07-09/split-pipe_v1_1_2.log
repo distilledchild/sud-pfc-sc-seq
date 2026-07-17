@@ -1,0 +1,2533 @@
+################################################################################
+# Program                   split-pipe v1.1.2
+# Run date                  2024-07-09 16:58:06.151944+0
+# Run on                    ilm0837 (x86_64 Linux) by jhuang45
+# System                    2.0T (2163431178240) RAM and 56 CPUs
+# PID                       3705380
+################################################################################
+#
+#                ------ >>> Initialization messages <<< ------
+# Mode 'all'; Not using any run process definitions
+# Setting threads to 32 (ncpu=56, initial nthreads=0 limited to 32) (init threads)
+# Set bc_amp_seq for chemistry v2 (set chem defaults)
+# WARNING: Cleaned sample name 'F344/SHR_M_E007/E118' >--> 'F344_SHR_M_E007_E118'
+# Set 1 samples, 
+# Set run_name mclover3_D10_12_2024-07-09 (init run_name)
+# Use_case behavior set to normal (init use_case)
+# Setting up run-time env; Use_case normal, Mode all, Kit not set Chem v2
+# Checking run env (conda); timeout 30
+# Checking called executables; timeout 30
+# Version info: STAR /nfs/home/jhuang45/.conda/envs/spipe/bin/STAR 2.7.11a
+# Version info: samtools /nfs/home/jhuang45/.conda/envs/spipe/bin/samtools samtools 1.18
+# Version info: fastqc /nfs/home/jhuang45/.conda/envs/spipe/bin/fastqc FastQC v0.12.1
+# Version info: gzip /usr/bin/gzip gzip 1.9
+# Version info: pigz /nfs/home/jhuang45/.conda/envs/spipe/bin/pigz pigz 2.8
+# Version info: unzip /nfs/home/jhuang45/.conda/envs/spipe/bin/unzip UnZip 6.00 of 20 April 2009, by Info-ZIP.  Maintained by C. Spieler.  Send
+# Scoring fastq data against 3 kits, chemistry v2
+# Sampling 1000000 R2 reads (from 100000 to 1100000)
+#   WT_mini (n24_v4) = 0.247
+#   WT (n99_v5) = 0.969
+#   WT_mega (n198_v5) = 0.485
+# Best scoring kit = WT, 0.969
+# Set barcodes for kit WT chemistry v2 (set kit defaults)
+# Set dge_cell_max for kit WT chemistry v2 (set kit defaults)
+# Genome genomes/rn7_no_contigs_mclover3 version 1.1.2 >= min v1.1.0
+# Setting up genome files
+# Copy genomes/rn7_no_contigs_mclover3/all_genes.csv to analysis/mclover3_D10_12_2024-07-09/process/all_genes.csv
+# Set up 1 samples
+# Opening log analysis/mclover3_D10_12_2024-07-09/split-pipe_v1_1_2.log 
+#
+#                ------ >>> Parameter settings <<< ------
+# use_case                  normal
+# mode                      all
+# chemistry                 v2
+# kit                       WT	(48 wells)
+# kit_source                score 0.969
+# parfile                   <Not set>
+# logfile                   analysis/mclover3_D10_12_2024-07-09/split-pipe_v1_1_2.log
+# run_name                  mclover3_D10_12_2024-07-09	(automatic)
+# input_dir                 <Not set>
+# output_dir                analysis/mclover3_D10_12_2024-07-09/
+# parent_dir                <Not set>
+# fq1                       expdata/A_R1.fastq.gz
+# fq2                       expdata/A_R2.fastq.gz
+# sublib_list               <Not set>
+# sublib_pref               <Not set>
+# sublib_suff               <Not set>
+# sublibraries              <Not set>
+# samp_list                 <Not set>
+# samp_sltab                <Not set>
+# sample                    Item_1_of_1	['F344_SHR_M_E007_E118', 'D10-D12', '3 wells']
+# genome_dir                genomes/rn7_no_contigs_mclover3/
+# genome_name               <Not set>
+# genes                     <Not set>
+# fasta                     <Not set>
+# gfasta                    <Not set>
+# crsp_guides               <Not set>
+# crsp_use_star             False
+# targeted_list             <Not set>
+# focal_barcoding           False
+# crispr                    False
+# nthreads                  32	(automatic)
+# max_threads               32
+# rseed                     42
+# reuse                     False
+# make_allwell              False
+# make_allsample            True
+# samp_wells_unique         False
+# keep_going                True
+# keep_temps                False
+# no_compress               False
+# gzip_compresslevel        4
+# one_step                  False
+# start_timeout             30
+# dryrun                    False
+# bc_save_data_file         True
+# bc_save_data_clean        True
+# bc_amp_seq                NNNNNNNNNN33333333GTGGCCGATGTTTCGCATCGGCGTACGACT22222222ATCCACGTGCTTGAGACTGTGG11111111
+# bc_round_set              Item_1_of_3	['bc1', 'n99_v5', ' 99 barcodes,  48 wells; rows A-D, cols 1-12']
+# bc_round_set              Item_2_of_3	['bc2', 'v1', ' 96 barcodes,  96 wells; rows A-H, cols 1-12']
+# bc_round_set              Item_3_of_3	['bc3', 'v1', ' 96 barcodes,  96 wells; rows A-H, cols 1-12']
+# bc_edit_dist              2
+# kit_score_warn            0.7
+# kit_score_min             0
+# kit_score_remain_frac     0.2
+# kit_score_skip            False
+# tso_seq                   AACGCAGAGTGAATGGG
+# tso_read_limit            15
+# fastq_samp_slice          [100000, 1100000]
+# mkref_id_for_no_name      True
+# mkref_gtf_guess_min       1
+# mkref_min_genes           1
+# mkref_min_exons           1
+# mkref_max_gtf_not_fas     0
+# mkref_gtf_dict_stepsize   10000
+# mkref_star_splicing       True
+# mkref_star_genomesaindexnbases 14
+# mkref_star_genomesasparsed 2
+# mkref_star_extra_args     <Not set>
+# inqc_fastqc_run           True
+# inqc_fastqc_show_warn     False
+# inqc_min_reads            100000
+# inqc_min_good_r1len_frac  0.5
+# inqc_min_good_r2len_frac  0.9
+# pre_min_r1_len            45
+# pre_check_name_match      True
+# pre_check_name_r1r2       True
+# pre_head_keep_seq_index   True
+# pre_head_regex            @(\S+)\s+([12])\S*:(\S*)$
+# pre_perfect_bc_cell_thresh 0.92
+# pre_keep_no_bc_fq         False
+# tcr_analysis              False
+# tcr_genome                human
+# tcr_kmer                  21
+# tcr_read_threshold        2
+# tcr_trim                  30
+# crsp_match_direct         False
+# crsp_match_edit_dist      0
+# crsp_match_hamming_dist   1
+# align_min_genome_version  v1.1.0
+# align_min_start_reads     50000
+# align_star_outfiltermultimapnmax 3
+# align_star_keep_no_map    False
+# align_star_extra_args     <Not set>
+# post_min_map_frac         0.2
+# mol_min_mapq_score        255
+# dge_min_start_tscp        10000
+# dge_copy_dge_genes_file   True
+# dge_save_express_gene_file True
+# dge_ssc_xstep_size        1000
+# dge_ssc_xstep_ndup        5
+# dge_species_purity_thresh 0.9
+# dge_tscp_cut_given        <Not set>
+# dge_tscp_cut_min          30
+# dge_tscp_cut_max          <Not set>
+# dge_tscp_cut_scale_fac    1.0
+# dge_cell_est              <Not set>
+# dge_cell_given            <Not set>
+# dge_cell_gxfold           3
+# dge_cell_min              10
+# dge_cell_auc_min          0.4
+# dge_cell_max              30000
+# dge_cell_scale_by_frac    True
+# dge_cell_hard_min         5
+# dge_cell_list             <Not set>
+# dge_gene_cell_min         3
+# dge_tscp_cut_umin         10
+# dge_gene_cell_umin        1
+# dge_tscp_cut_targeted_min 15
+# dge_tscp_cut_targeted_umin 5
+# dge_gene_cell_targeted_min 2
+# dge_tscp_read_min         1
+# dge_gene_tscp_min         1
+# dge_tscp_read_fb_min      3
+# dge_gene_tscp_fb_min      5
+# dge_gene_tscp_fb_base     1
+# comb_new_tscp             False
+# comb_unfilt_dge           True
+# ana_scanpy_verbosity      <Not set>
+# ana_save_anndata          True
+# ana_mem_eff_cell_thresh   100000
+# ana_norm_target_sum       10000
+# ana_scale_max_value       10
+# ana_scale_zero_center     True
+# ana_pca_min_hvar          100
+# ana_pca_dim_max           50
+# ana_pca_dim_min           10
+# ana_pca_dim_targeted_max  10
+# ana_pca_irlbpy            True
+# ana_cluster_min_bc        30
+# ana_cluster_1base         True
+# ana_save_umap             True
+# ana_umap_n_neighbors      50
+# ana_umap_min_dist         0.5
+# ana_cluster_alg           leiden
+# ana_ctab_top_n            20
+# ana_ctab_sco_min_den      0.01
+# ana_gene_cell_min         3
+# rep_save_figs             True
+# rep_plate_min_zero        True
+# rep_umap_subsamp          15000
+# rep_umap_ss_clus_min      10
+# rep_umap_norm_fac         10000.0
+# rep_umap_fb_zero_nc       True
+# rep_gene_def_url          https://www.ncbi.nlm.nih.gov/gene/?term={gene_id}
+# rep_gene_url              <Not set>
+# clean_per_step            False
+# clean_make_summaries_zip  True
+# map_targ_genome_dir_path  map_targs
+# map_targ                  <Not set>
+# map_targ_kmer_len         30
+# map_targ_kmer_step        1
+# map_targ_kmer_search_max  41
+# map_targ_kmer_search_step 10
+#
+# Kit_score Processing: Score kit barcodes
+# Kit_score Given kit: None
+# Kit_score Total kits screened: 3
+# Kit_score Score WT_mini (n24_v4)   = 0.247
+# Kit_score Score WT (n99_v5)        = 0.969    <---- using
+# Kit_score Score WT_mega (n198_v5)  = 0.485
+#
+############################  Plate sample layout  ############################
+# Plate_samples       1  2  3  4  5  6  7  8  9  10  11  12
+# Plate_samples    A  0  0  0  0  0  0  0  0  0   0   0   0
+# Plate_samples    B  0  0  0  0  0  0  0  0  0   0   0   0
+# Plate_samples    C  0  0  0  0  0  0  0  0  0   0   0   0
+# Plate_samples    D  0  0  0  0  0  0  0  0  0   1   1   1
+################################################################################
+
+
+# Time	Starting split-pipe v1.1.2	2024-07-09 16:58:06.262198+0
+# Saved env info analysis/mclover3_D10_12_2024-07-09/process/run_proc_def.json 
+#2 MemStatus: InQC  5.2G proc, 1.5G rss, 3.6G vms, 1.0% usd, 1.9T avail
+#2 DskStatus: InQC  '/nalysis/' 3.6P total, 2.4P (66.86%) used, 1.0P (28.1%) free
+# >> Running InQC
+#2 MemStatus: InQC  5.2G proc, 1.5G rss, 3.6G vms, 1.0% usd, 1.9T avail
+#2 DskStatus: InQC  '/nalysis/' 3.6P total, 2.4P (66.86%) used, 1.0P (28.1%) free
+# Input fastq R1: expdata/A_R1.fastq.gz, 15.6G, (16772488061), 06/12/2024
+# Input fastq R2: expdata/A_R2.fastq.gz, 12.5G, (13417163803), 06/12/2024
+# Checking fastq read lengths
+# Sampling 1000000 R1 reads (from 100000 to 1100000)
+#2 R1 fastq read length good fraction: 1.0
+#2 R2 fastq read length good fraction: 1.0
+# Calling fastQC for inputs; Sample 100000 to 1100000 fastq records
+#2 analysis/mclover3_D10_12_2024-07-09/process/fastQC/R1_fastqc.html
+#2 analysis/mclover3_D10_12_2024-07-09/process/fastQC/R1_fastqc.zip
+#2 analysis/mclover3_D10_12_2024-07-09/process/fastQC/R2_fastqc.html
+#2 analysis/mclover3_D10_12_2024-07-09/process/fastQC/R2_fastqc.zip
+#2 New file: analysis/mclover3_D10_12_2024-07-09/process/fastQC_pass_fail_sum.txt
+#2 MemStatus: InQC  6.4G proc, 2.1G rss, 4.2G vms, 1.0% usd, 1.9T avail
+#2 DskStatus: InQC  '/nalysis/' 3.6P total, 2.4P (66.86%) used, 1.0P (28.1%) free
+#2 MemStatus: InQC  6.4G proc, 2.1G rss, 4.2G vms, 1.0% usd, 1.9T avail
+#2 DskStatus: InQC  '/nalysis/' 3.6P total, 2.4P (66.86%) used, 1.0P (28.1%) free
+# << Running InQC; Status True; Duration 0:00:32.43
+
+#2 MemStatus: Preprocess  6.4G proc, 2.1G rss, 4.2G vms, 1.0% usd, 1.9T avail
+#2 DskStatus: Preprocess  '/nalysis/' 3.6P total, 2.4P (66.86%) used, 1.0P (28.1%) free
+# >> Running Preprocess
+#2 MemStatus: Preprocess  6.4G proc, 2.1G rss, 4.2G vms, 1.0% usd, 1.9T avail
+#2 DskStatus: Preprocess  '/nalysis/' 3.6P total, 2.4P (66.86%) used, 1.0P (28.1%) free
+#2 Collecting R2 Q30 stats
+#2 Collecting perfect bc counts for correction
+#2 Got bc count_threshold 5, 296507 counts
+#2 Correcting barcodes for fastq
+#2 Collecting R1 Q30 stats; 1000000 samples (From 100000 to 1100000)
+#3 Processed 200000 fastq records; Valid bc 76.36%
+#3 Processed 400000 fastq records; Valid bc 76.27%
+#3 Processed 600000 fastq records; Valid bc 76.24%
+#3 Processed 800000 fastq records; Valid bc 76.19%
+#3 Processed 1000000 fastq records; Valid bc 76.14%
+#3 Processed 1200000 fastq records; Valid bc 75.94%
+#3 Processed 1400000 fastq records; Valid bc 75.34%
+#3 Processed 1600000 fastq records; Valid bc 75.51%
+#3 Processed 1800000 fastq records; Valid bc 75.62%
+#3 Processed 2000000 fastq records; Valid bc 75.74%
+#3 Processed 2200000 fastq records; Valid bc 75.82%
+#3 Processed 2400000 fastq records; Valid bc 75.89%
+#3 Processed 2600000 fastq records; Valid bc 75.87%
+#3 Processed 2800000 fastq records; Valid bc 75.8%
+#3 Processed 3000000 fastq records; Valid bc 75.88%
+#3 Processed 3200000 fastq records; Valid bc 75.94%
+#3 Processed 3400000 fastq records; Valid bc 76.01%
+#3 Processed 3600000 fastq records; Valid bc 76.06%
+#3 Processed 3800000 fastq records; Valid bc 76.1%
+#3 Processed 4000000 fastq records; Valid bc 76.14%
+#3 Processed 4200000 fastq records; Valid bc 76.18%
+#3 Processed 4400000 fastq records; Valid bc 76.22%
+#3 Processed 4600000 fastq records; Valid bc 76.25%
+#3 Processed 4800000 fastq records; Valid bc 76.28%
+#3 Processed 5000000 fastq records; Valid bc 76.31%
+#3 Processed 5200000 fastq records; Valid bc 76.34%
+#3 Processed 5400000 fastq records; Valid bc 76.36%
+#3 Processed 5600000 fastq records; Valid bc 76.39%
+#3 Processed 5800000 fastq records; Valid bc 76.42%
+#3 Processed 6000000 fastq records; Valid bc 76.44%
+#3 Processed 6200000 fastq records; Valid bc 76.47%
+#3 Processed 6400000 fastq records; Valid bc 76.49%
+#3 Processed 6600000 fastq records; Valid bc 76.51%
+#3 Processed 6800000 fastq records; Valid bc 76.52%
+#3 Processed 7000000 fastq records; Valid bc 76.53%
+#3 Processed 7200000 fastq records; Valid bc 76.55%
+#3 Processed 7400000 fastq records; Valid bc 76.57%
+#3 Processed 7600000 fastq records; Valid bc 76.58%
+#3 Processed 7800000 fastq records; Valid bc 76.6%
+#3 Processed 8000000 fastq records; Valid bc 76.61%
+#3 Processed 8200000 fastq records; Valid bc 76.62%
+#3 Processed 8400000 fastq records; Valid bc 76.63%
+#3 Processed 8600000 fastq records; Valid bc 76.64%
+#3 Processed 8800000 fastq records; Valid bc 76.65%
+#3 Processed 9000000 fastq records; Valid bc 76.66%
+#3 Processed 9200000 fastq records; Valid bc 76.67%
+#3 Processed 9400000 fastq records; Valid bc 76.67%
+#3 Processed 9600000 fastq records; Valid bc 76.69%
+#3 Processed 9800000 fastq records; Valid bc 76.7%
+#3 Processed 10000000 fastq records; Valid bc 76.71%
+#3 Processed 10200000 fastq records; Valid bc 76.71%
+#3 Processed 10400000 fastq records; Valid bc 76.72%
+#3 Processed 10600000 fastq records; Valid bc 76.73%
+#3 Processed 10800000 fastq records; Valid bc 76.74%
+#3 Processed 11000000 fastq records; Valid bc 76.74%
+#3 Processed 11200000 fastq records; Valid bc 76.75%
+#3 Processed 11400000 fastq records; Valid bc 76.75%
+#3 Processed 11600000 fastq records; Valid bc 76.76%
+#3 Processed 11800000 fastq records; Valid bc 76.76%
+#3 Processed 12000000 fastq records; Valid bc 76.77%
+#3 Processed 12200000 fastq records; Valid bc 76.77%
+#3 Processed 12400000 fastq records; Valid bc 76.78%
+#3 Processed 12600000 fastq records; Valid bc 76.79%
+#3 Processed 12800000 fastq records; Valid bc 76.8%
+#3 Processed 13000000 fastq records; Valid bc 76.8%
+#3 Processed 13200000 fastq records; Valid bc 76.81%
+#3 Processed 13400000 fastq records; Valid bc 76.81%
+#3 Processed 13600000 fastq records; Valid bc 76.8%
+#3 Processed 13800000 fastq records; Valid bc 76.79%
+#3 Processed 14000000 fastq records; Valid bc 76.78%
+#3 Processed 14200000 fastq records; Valid bc 76.77%
+#3 Processed 14400000 fastq records; Valid bc 76.76%
+#3 Processed 14600000 fastq records; Valid bc 76.73%
+#3 Processed 14800000 fastq records; Valid bc 76.65%
+#3 Processed 15000000 fastq records; Valid bc 76.64%
+#3 Processed 15200000 fastq records; Valid bc 76.64%
+#3 Processed 15400000 fastq records; Valid bc 76.64%
+#3 Processed 15600000 fastq records; Valid bc 76.64%
+#3 Processed 15800000 fastq records; Valid bc 76.63%
+#3 Processed 16000000 fastq records; Valid bc 76.62%
+#3 Processed 16200000 fastq records; Valid bc 76.59%
+#3 Processed 16400000 fastq records; Valid bc 76.6%
+#3 Processed 16600000 fastq records; Valid bc 76.6%
+#3 Processed 16800000 fastq records; Valid bc 76.61%
+#3 Processed 17000000 fastq records; Valid bc 76.61%
+#3 Processed 17200000 fastq records; Valid bc 76.61%
+#3 Processed 17400000 fastq records; Valid bc 76.61%
+#3 Processed 17600000 fastq records; Valid bc 76.62%
+#3 Processed 17800000 fastq records; Valid bc 76.62%
+#3 Processed 18000000 fastq records; Valid bc 76.63%
+#3 Processed 18200000 fastq records; Valid bc 76.63%
+#3 Processed 18400000 fastq records; Valid bc 76.64%
+#3 Processed 18600000 fastq records; Valid bc 76.64%
+#3 Processed 18800000 fastq records; Valid bc 76.64%
+#3 Processed 19000000 fastq records; Valid bc 76.65%
+#3 Processed 19200000 fastq records; Valid bc 76.65%
+#3 Processed 19400000 fastq records; Valid bc 76.66%
+#3 Processed 19600000 fastq records; Valid bc 76.66%
+#3 Processed 19800000 fastq records; Valid bc 76.66%
+#3 Processed 20000000 fastq records; Valid bc 76.67%
+#3 Processed 20200000 fastq records; Valid bc 76.67%
+#3 Processed 20400000 fastq records; Valid bc 76.68%
+#3 Processed 20600000 fastq records; Valid bc 76.68%
+#3 Processed 20800000 fastq records; Valid bc 76.69%
+#3 Processed 21000000 fastq records; Valid bc 76.69%
+#3 Processed 21200000 fastq records; Valid bc 76.7%
+#3 Processed 21400000 fastq records; Valid bc 76.7%
+#3 Processed 21600000 fastq records; Valid bc 76.7%
+#3 Processed 21800000 fastq records; Valid bc 76.71%
+#3 Processed 22000000 fastq records; Valid bc 76.71%
+#3 Processed 22200000 fastq records; Valid bc 76.71%
+#3 Processed 22400000 fastq records; Valid bc 76.72%
+#3 Processed 22600000 fastq records; Valid bc 76.72%
+#3 Processed 22800000 fastq records; Valid bc 76.72%
+#3 Processed 23000000 fastq records; Valid bc 76.72%
+#3 Processed 23200000 fastq records; Valid bc 76.73%
+#3 Processed 23400000 fastq records; Valid bc 76.73%
+#3 Processed 23600000 fastq records; Valid bc 76.74%
+#3 Processed 23800000 fastq records; Valid bc 76.74%
+#3 Processed 24000000 fastq records; Valid bc 76.74%
+#3 Processed 24200000 fastq records; Valid bc 76.75%
+#3 Processed 24400000 fastq records; Valid bc 76.75%
+#3 Processed 24600000 fastq records; Valid bc 76.75%
+#3 Processed 24800000 fastq records; Valid bc 76.76%
+#3 Processed 25000000 fastq records; Valid bc 76.76%
+#3 Processed 25200000 fastq records; Valid bc 76.76%
+#3 Processed 25400000 fastq records; Valid bc 76.77%
+#3 Processed 25600000 fastq records; Valid bc 76.77%
+#3 Processed 25800000 fastq records; Valid bc 76.77%
+#3 Processed 26000000 fastq records; Valid bc 76.77%
+#3 Processed 26200000 fastq records; Valid bc 76.78%
+#3 Processed 26400000 fastq records; Valid bc 76.78%
+#3 Processed 26600000 fastq records; Valid bc 76.79%
+#3 Processed 26800000 fastq records; Valid bc 76.79%
+#3 Processed 27000000 fastq records; Valid bc 76.78%
+#3 Processed 27200000 fastq records; Valid bc 76.78%
+#3 Processed 27400000 fastq records; Valid bc 76.77%
+#3 Processed 27600000 fastq records; Valid bc 76.76%
+#3 Processed 27800000 fastq records; Valid bc 76.75%
+#3 Processed 28000000 fastq records; Valid bc 76.72%
+#3 Processed 28200000 fastq records; Valid bc 76.68%
+#3 Processed 28400000 fastq records; Valid bc 76.68%
+#3 Processed 28600000 fastq records; Valid bc 76.67%
+#3 Processed 28800000 fastq records; Valid bc 76.67%
+#3 Processed 29000000 fastq records; Valid bc 76.67%
+#3 Processed 29200000 fastq records; Valid bc 76.67%
+#3 Processed 29400000 fastq records; Valid bc 76.65%
+#3 Processed 29600000 fastq records; Valid bc 76.64%
+#3 Processed 29800000 fastq records; Valid bc 76.64%
+#3 Processed 30000000 fastq records; Valid bc 76.65%
+#3 Processed 30200000 fastq records; Valid bc 76.65%
+#3 Processed 30400000 fastq records; Valid bc 76.65%
+#3 Processed 30600000 fastq records; Valid bc 76.65%
+#3 Processed 30800000 fastq records; Valid bc 76.65%
+#3 Processed 31000000 fastq records; Valid bc 76.65%
+#3 Processed 31200000 fastq records; Valid bc 76.66%
+#3 Processed 31400000 fastq records; Valid bc 76.66%
+#3 Processed 31600000 fastq records; Valid bc 76.66%
+#3 Processed 31800000 fastq records; Valid bc 76.67%
+#3 Processed 32000000 fastq records; Valid bc 76.67%
+#3 Processed 32200000 fastq records; Valid bc 76.67%
+#3 Processed 32400000 fastq records; Valid bc 76.67%
+#3 Processed 32600000 fastq records; Valid bc 76.67%
+#3 Processed 32800000 fastq records; Valid bc 76.68%
+#3 Processed 33000000 fastq records; Valid bc 76.68%
+#3 Processed 33200000 fastq records; Valid bc 76.68%
+#3 Processed 33400000 fastq records; Valid bc 76.68%
+#3 Processed 33600000 fastq records; Valid bc 76.69%
+#3 Processed 33800000 fastq records; Valid bc 76.69%
+#3 Processed 34000000 fastq records; Valid bc 76.69%
+#3 Processed 34200000 fastq records; Valid bc 76.69%
+#3 Processed 34400000 fastq records; Valid bc 76.7%
+#3 Processed 34600000 fastq records; Valid bc 76.7%
+#3 Processed 34800000 fastq records; Valid bc 76.7%
+#3 Processed 35000000 fastq records; Valid bc 76.71%
+#3 Processed 35200000 fastq records; Valid bc 76.71%
+#3 Processed 35400000 fastq records; Valid bc 76.71%
+#3 Processed 35600000 fastq records; Valid bc 76.71%
+#3 Processed 35800000 fastq records; Valid bc 76.72%
+#3 Processed 36000000 fastq records; Valid bc 76.72%
+#3 Processed 36200000 fastq records; Valid bc 76.72%
+#3 Processed 36400000 fastq records; Valid bc 76.72%
+#3 Processed 36600000 fastq records; Valid bc 76.72%
+#3 Processed 36800000 fastq records; Valid bc 76.73%
+#3 Processed 37000000 fastq records; Valid bc 76.73%
+#3 Processed 37200000 fastq records; Valid bc 76.73%
+#3 Processed 37400000 fastq records; Valid bc 76.73%
+#3 Processed 37600000 fastq records; Valid bc 76.74%
+#3 Processed 37800000 fastq records; Valid bc 76.74%
+#3 Processed 38000000 fastq records; Valid bc 76.74%
+#3 Processed 38200000 fastq records; Valid bc 76.74%
+#3 Processed 38400000 fastq records; Valid bc 76.74%
+#3 Processed 38600000 fastq records; Valid bc 76.74%
+#3 Processed 38800000 fastq records; Valid bc 76.75%
+#3 Processed 39000000 fastq records; Valid bc 76.75%
+#3 Processed 39200000 fastq records; Valid bc 76.75%
+#3 Processed 39400000 fastq records; Valid bc 76.75%
+#3 Processed 39600000 fastq records; Valid bc 76.75%
+#3 Processed 39800000 fastq records; Valid bc 76.76%
+#3 Processed 40000000 fastq records; Valid bc 76.76%
+#3 Processed 40200000 fastq records; Valid bc 76.76%
+#3 Processed 40400000 fastq records; Valid bc 76.76%
+#3 Processed 40600000 fastq records; Valid bc 76.75%
+#3 Processed 40800000 fastq records; Valid bc 76.74%
+#3 Processed 41000000 fastq records; Valid bc 76.73%
+#3 Processed 41200000 fastq records; Valid bc 76.72%
+#3 Processed 41400000 fastq records; Valid bc 76.69%
+#3 Processed 41600000 fastq records; Valid bc 76.67%
+#3 Processed 41800000 fastq records; Valid bc 76.66%
+#3 Processed 42000000 fastq records; Valid bc 76.66%
+#3 Processed 42200000 fastq records; Valid bc 76.66%
+#3 Processed 42400000 fastq records; Valid bc 76.66%
+#3 Processed 42600000 fastq records; Valid bc 76.66%
+#3 Processed 42800000 fastq records; Valid bc 76.63%
+#3 Processed 43000000 fastq records; Valid bc 76.64%
+#3 Processed 43200000 fastq records; Valid bc 76.64%
+#3 Processed 43400000 fastq records; Valid bc 76.64%
+#3 Processed 43600000 fastq records; Valid bc 76.64%
+#3 Processed 43800000 fastq records; Valid bc 76.64%
+#3 Processed 44000000 fastq records; Valid bc 76.64%
+#3 Processed 44200000 fastq records; Valid bc 76.64%
+#3 Processed 44400000 fastq records; Valid bc 76.64%
+#3 Processed 44600000 fastq records; Valid bc 76.65%
+#3 Processed 44800000 fastq records; Valid bc 76.65%
+#3 Processed 45000000 fastq records; Valid bc 76.65%
+#3 Processed 45200000 fastq records; Valid bc 76.65%
+#3 Processed 45400000 fastq records; Valid bc 76.65%
+#3 Processed 45600000 fastq records; Valid bc 76.66%
+#3 Processed 45800000 fastq records; Valid bc 76.66%
+#3 Processed 46000000 fastq records; Valid bc 76.66%
+#3 Processed 46200000 fastq records; Valid bc 76.66%
+#3 Processed 46400000 fastq records; Valid bc 76.66%
+#3 Processed 46600000 fastq records; Valid bc 76.67%
+#3 Processed 46800000 fastq records; Valid bc 76.67%
+#3 Processed 47000000 fastq records; Valid bc 76.67%
+#3 Processed 47200000 fastq records; Valid bc 76.67%
+#3 Processed 47400000 fastq records; Valid bc 76.67%
+#3 Processed 47600000 fastq records; Valid bc 76.68%
+#3 Processed 47800000 fastq records; Valid bc 76.68%
+#3 Processed 48000000 fastq records; Valid bc 76.68%
+#3 Processed 48200000 fastq records; Valid bc 76.68%
+#3 Processed 48400000 fastq records; Valid bc 76.68%
+#3 Processed 48600000 fastq records; Valid bc 76.68%
+#3 Processed 48800000 fastq records; Valid bc 76.69%
+#3 Processed 49000000 fastq records; Valid bc 76.69%
+#3 Processed 49200000 fastq records; Valid bc 76.69%
+#3 Processed 49400000 fastq records; Valid bc 76.69%
+#3 Processed 49600000 fastq records; Valid bc 76.69%
+#3 Processed 49800000 fastq records; Valid bc 76.7%
+#3 Processed 50000000 fastq records; Valid bc 76.7%
+#3 Processed 50200000 fastq records; Valid bc 76.7%
+#3 Processed 50400000 fastq records; Valid bc 76.7%
+#3 Processed 50600000 fastq records; Valid bc 76.71%
+#3 Processed 50800000 fastq records; Valid bc 76.71%
+#3 Processed 51000000 fastq records; Valid bc 76.71%
+#3 Processed 51200000 fastq records; Valid bc 76.71%
+#3 Processed 51400000 fastq records; Valid bc 76.71%
+#3 Processed 51600000 fastq records; Valid bc 76.71%
+#3 Processed 51800000 fastq records; Valid bc 76.72%
+#3 Processed 52000000 fastq records; Valid bc 76.72%
+#3 Processed 52200000 fastq records; Valid bc 76.72%
+#3 Processed 52400000 fastq records; Valid bc 76.72%
+#3 Processed 52600000 fastq records; Valid bc 76.72%
+#3 Processed 52800000 fastq records; Valid bc 76.72%
+#3 Processed 53000000 fastq records; Valid bc 76.73%
+#3 Processed 53200000 fastq records; Valid bc 76.73%
+#3 Processed 53400000 fastq records; Valid bc 76.73%
+#3 Processed 53600000 fastq records; Valid bc 76.73%
+#3 Processed 53800000 fastq records; Valid bc 76.72%
+#3 Processed 54000000 fastq records; Valid bc 76.71%
+#3 Processed 54200000 fastq records; Valid bc 76.7%
+#3 Processed 54400000 fastq records; Valid bc 76.69%
+#3 Processed 54600000 fastq records; Valid bc 76.67%
+#3 Processed 54800000 fastq records; Valid bc 76.64%
+#3 Processed 55000000 fastq records; Valid bc 76.64%
+#3 Processed 55200000 fastq records; Valid bc 76.64%
+#3 Processed 55400000 fastq records; Valid bc 76.64%
+#3 Processed 55600000 fastq records; Valid bc 76.64%
+#3 Processed 55800000 fastq records; Valid bc 76.64%
+#3 Processed 56000000 fastq records; Valid bc 76.62%
+#3 Processed 56200000 fastq records; Valid bc 76.61%
+#3 Processed 56400000 fastq records; Valid bc 76.61%
+#3 Processed 56600000 fastq records; Valid bc 76.62%
+#3 Processed 56800000 fastq records; Valid bc 76.62%
+#3 Processed 57000000 fastq records; Valid bc 76.62%
+#3 Processed 57200000 fastq records; Valid bc 76.62%
+#3 Processed 57400000 fastq records; Valid bc 76.62%
+#3 Processed 57600000 fastq records; Valid bc 76.62%
+#3 Processed 57800000 fastq records; Valid bc 76.62%
+#3 Processed 58000000 fastq records; Valid bc 76.62%
+#3 Processed 58200000 fastq records; Valid bc 76.63%
+#3 Processed 58400000 fastq records; Valid bc 76.63%
+#3 Processed 58600000 fastq records; Valid bc 76.63%
+#3 Processed 58800000 fastq records; Valid bc 76.63%
+#3 Processed 59000000 fastq records; Valid bc 76.63%
+#3 Processed 59200000 fastq records; Valid bc 76.63%
+#3 Processed 59400000 fastq records; Valid bc 76.63%
+#3 Processed 59600000 fastq records; Valid bc 76.64%
+#3 Processed 59800000 fastq records; Valid bc 76.64%
+#3 Processed 60000000 fastq records; Valid bc 76.64%
+#3 Processed 60200000 fastq records; Valid bc 76.64%
+#3 Processed 60400000 fastq records; Valid bc 76.64%
+#3 Processed 60600000 fastq records; Valid bc 76.64%
+#3 Processed 60800000 fastq records; Valid bc 76.64%
+#3 Processed 61000000 fastq records; Valid bc 76.65%
+#3 Processed 61200000 fastq records; Valid bc 76.65%
+#3 Processed 61400000 fastq records; Valid bc 76.65%
+#3 Processed 61600000 fastq records; Valid bc 76.65%
+#3 Processed 61800000 fastq records; Valid bc 76.65%
+#3 Processed 62000000 fastq records; Valid bc 76.65%
+#3 Processed 62200000 fastq records; Valid bc 76.66%
+#3 Processed 62400000 fastq records; Valid bc 76.66%
+#3 Processed 62600000 fastq records; Valid bc 76.66%
+#3 Processed 62800000 fastq records; Valid bc 76.66%
+#3 Processed 63000000 fastq records; Valid bc 76.66%
+#3 Processed 63200000 fastq records; Valid bc 76.67%
+#3 Processed 63400000 fastq records; Valid bc 76.67%
+#3 Processed 63600000 fastq records; Valid bc 76.67%
+#3 Processed 63800000 fastq records; Valid bc 76.67%
+#3 Processed 64000000 fastq records; Valid bc 76.67%
+#3 Processed 64200000 fastq records; Valid bc 76.67%
+#3 Processed 64400000 fastq records; Valid bc 76.67%
+#3 Processed 64600000 fastq records; Valid bc 76.68%
+#3 Processed 64800000 fastq records; Valid bc 76.68%
+#3 Processed 65000000 fastq records; Valid bc 76.68%
+#3 Processed 65200000 fastq records; Valid bc 76.68%
+#3 Processed 65400000 fastq records; Valid bc 76.68%
+#3 Processed 65600000 fastq records; Valid bc 76.68%
+#3 Processed 65800000 fastq records; Valid bc 76.68%
+#3 Processed 66000000 fastq records; Valid bc 76.69%
+#3 Processed 66200000 fastq records; Valid bc 76.69%
+#3 Processed 66400000 fastq records; Valid bc 76.69%
+#3 Processed 66600000 fastq records; Valid bc 76.69%
+#3 Processed 66800000 fastq records; Valid bc 76.69%
+#3 Processed 67000000 fastq records; Valid bc 76.68%
+#3 Processed 67200000 fastq records; Valid bc 76.67%
+#3 Processed 67400000 fastq records; Valid bc 76.66%
+#3 Processed 67600000 fastq records; Valid bc 76.65%
+#3 Processed 67800000 fastq records; Valid bc 76.63%
+#3 Processed 68000000 fastq records; Valid bc 76.6%
+#3 Processed 68200000 fastq records; Valid bc 76.6%
+#3 Processed 68400000 fastq records; Valid bc 76.6%
+#3 Processed 68600000 fastq records; Valid bc 76.6%
+#3 Processed 68800000 fastq records; Valid bc 76.6%
+#3 Processed 69000000 fastq records; Valid bc 76.6%
+#3 Processed 69200000 fastq records; Valid bc 76.58%
+#3 Processed 69400000 fastq records; Valid bc 76.58%
+#3 Processed 69600000 fastq records; Valid bc 76.58%
+#3 Processed 69800000 fastq records; Valid bc 76.58%
+#3 Processed 70000000 fastq records; Valid bc 76.58%
+#3 Processed 70200000 fastq records; Valid bc 76.58%
+#3 Processed 70400000 fastq records; Valid bc 76.58%
+#3 Processed 70600000 fastq records; Valid bc 76.58%
+#3 Processed 70800000 fastq records; Valid bc 76.58%
+#3 Processed 71000000 fastq records; Valid bc 76.58%
+#3 Processed 71200000 fastq records; Valid bc 76.58%
+#3 Processed 71400000 fastq records; Valid bc 76.59%
+#3 Processed 71600000 fastq records; Valid bc 76.59%
+#3 Processed 71800000 fastq records; Valid bc 76.59%
+#3 Processed 72000000 fastq records; Valid bc 76.59%
+#3 Processed 72200000 fastq records; Valid bc 76.59%
+#3 Processed 72400000 fastq records; Valid bc 76.59%
+#3 Processed 72600000 fastq records; Valid bc 76.59%
+#3 Processed 72800000 fastq records; Valid bc 76.59%
+#3 Processed 73000000 fastq records; Valid bc 76.59%
+#3 Processed 73200000 fastq records; Valid bc 76.6%
+#3 Processed 73400000 fastq records; Valid bc 76.6%
+#3 Processed 73600000 fastq records; Valid bc 76.6%
+#3 Processed 73800000 fastq records; Valid bc 76.6%
+#3 Processed 74000000 fastq records; Valid bc 76.6%
+#3 Processed 74200000 fastq records; Valid bc 76.6%
+#3 Processed 74400000 fastq records; Valid bc 76.6%
+#3 Processed 74600000 fastq records; Valid bc 76.61%
+#3 Processed 74800000 fastq records; Valid bc 76.61%
+#3 Processed 75000000 fastq records; Valid bc 76.61%
+#3 Processed 75200000 fastq records; Valid bc 76.61%
+#3 Processed 75400000 fastq records; Valid bc 76.61%
+#3 Processed 75600000 fastq records; Valid bc 76.61%
+#3 Processed 75800000 fastq records; Valid bc 76.61%
+#3 Processed 76000000 fastq records; Valid bc 76.62%
+#3 Processed 76200000 fastq records; Valid bc 76.62%
+#3 Processed 76400000 fastq records; Valid bc 76.62%
+#3 Processed 76600000 fastq records; Valid bc 76.62%
+#3 Processed 76800000 fastq records; Valid bc 76.62%
+#3 Processed 77000000 fastq records; Valid bc 76.62%
+#3 Processed 77200000 fastq records; Valid bc 76.63%
+#3 Processed 77400000 fastq records; Valid bc 76.63%
+#3 Processed 77600000 fastq records; Valid bc 76.63%
+#3 Processed 77800000 fastq records; Valid bc 76.63%
+#3 Processed 78000000 fastq records; Valid bc 76.63%
+#3 Processed 78200000 fastq records; Valid bc 76.63%
+#3 Processed 78400000 fastq records; Valid bc 76.63%
+#3 Processed 78600000 fastq records; Valid bc 76.63%
+#3 Processed 78800000 fastq records; Valid bc 76.64%
+#3 Processed 79000000 fastq records; Valid bc 76.64%
+#3 Processed 79200000 fastq records; Valid bc 76.64%
+#3 Processed 79400000 fastq records; Valid bc 76.64%
+#3 Processed 79600000 fastq records; Valid bc 76.64%
+#3 Processed 79800000 fastq records; Valid bc 76.64%
+#3 Processed 80000000 fastq records; Valid bc 76.64%
+#3 Processed 80200000 fastq records; Valid bc 76.64%
+#3 Processed 80400000 fastq records; Valid bc 76.64%
+#3 Processed 80600000 fastq records; Valid bc 76.64%
+#3 Processed 80800000 fastq records; Valid bc 76.64%
+#3 Processed 81000000 fastq records; Valid bc 76.64%
+#3 Processed 81200000 fastq records; Valid bc 76.64%
+#3 Processed 81400000 fastq records; Valid bc 76.64%
+#3 Processed 81600000 fastq records; Valid bc 76.64%
+#3 Processed 81800000 fastq records; Valid bc 76.65%
+#3 Processed 82000000 fastq records; Valid bc 76.65%
+#3 Processed 82200000 fastq records; Valid bc 76.65%
+#3 Processed 82400000 fastq records; Valid bc 76.65%
+#3 Processed 82600000 fastq records; Valid bc 76.65%
+#3 Processed 82800000 fastq records; Valid bc 76.65%
+#3 Processed 83000000 fastq records; Valid bc 76.65%
+#3 Processed 83200000 fastq records; Valid bc 76.65%
+#3 Processed 83400000 fastq records; Valid bc 76.65%
+#3 Processed 83600000 fastq records; Valid bc 76.65%
+#3 Processed 83800000 fastq records; Valid bc 76.65%
+#3 Processed 84000000 fastq records; Valid bc 76.65%
+#3 Processed 84200000 fastq records; Valid bc 76.65%
+#3 Processed 84400000 fastq records; Valid bc 76.66%
+#3 Processed 84600000 fastq records; Valid bc 76.66%
+#3 Processed 84800000 fastq records; Valid bc 76.66%
+#3 Processed 85000000 fastq records; Valid bc 76.66%
+#3 Processed 85200000 fastq records; Valid bc 76.66%
+#3 Processed 85400000 fastq records; Valid bc 76.66%
+#3 Processed 85600000 fastq records; Valid bc 76.66%
+#3 Processed 85800000 fastq records; Valid bc 76.66%
+#3 Processed 86000000 fastq records; Valid bc 76.66%
+#3 Processed 86200000 fastq records; Valid bc 76.66%
+#3 Processed 86400000 fastq records; Valid bc 76.66%
+#3 Processed 86600000 fastq records; Valid bc 76.67%
+#3 Processed 86800000 fastq records; Valid bc 76.67%
+#3 Processed 87000000 fastq records; Valid bc 76.67%
+#3 Processed 87200000 fastq records; Valid bc 76.67%
+#3 Processed 87400000 fastq records; Valid bc 76.67%
+#3 Processed 87600000 fastq records; Valid bc 76.67%
+#3 Processed 87800000 fastq records; Valid bc 76.67%
+#3 Processed 88000000 fastq records; Valid bc 76.67%
+#3 Processed 88200000 fastq records; Valid bc 76.67%
+#3 Processed 88400000 fastq records; Valid bc 76.67%
+#3 Processed 88600000 fastq records; Valid bc 76.67%
+#3 Processed 88800000 fastq records; Valid bc 76.68%
+#3 Processed 89000000 fastq records; Valid bc 76.68%
+#3 Processed 89200000 fastq records; Valid bc 76.68%
+#3 Processed 89400000 fastq records; Valid bc 76.68%
+#3 Processed 89600000 fastq records; Valid bc 76.68%
+#3 Processed 89800000 fastq records; Valid bc 76.68%
+#3 Processed 90000000 fastq records; Valid bc 76.68%
+#3 Processed 90200000 fastq records; Valid bc 76.68%
+#3 Processed 90400000 fastq records; Valid bc 76.68%
+#3 Processed 90600000 fastq records; Valid bc 76.68%
+#3 Processed 90800000 fastq records; Valid bc 76.68%
+#3 Processed 91000000 fastq records; Valid bc 76.68%
+#3 Processed 91200000 fastq records; Valid bc 76.68%
+#3 Processed 91400000 fastq records; Valid bc 76.68%
+#3 Processed 91600000 fastq records; Valid bc 76.68%
+#3 Processed 91800000 fastq records; Valid bc 76.69%
+#3 Processed 92000000 fastq records; Valid bc 76.69%
+#3 Processed 92200000 fastq records; Valid bc 76.69%
+#3 Processed 92400000 fastq records; Valid bc 76.69%
+#3 Processed 92600000 fastq records; Valid bc 76.69%
+#3 Processed 92800000 fastq records; Valid bc 76.69%
+#3 Processed 93000000 fastq records; Valid bc 76.69%
+#3 Processed 93200000 fastq records; Valid bc 76.69%
+#3 Processed 93400000 fastq records; Valid bc 76.69%
+#3 Processed 93600000 fastq records; Valid bc 76.69%
+#3 Processed 93800000 fastq records; Valid bc 76.69%
+#3 Processed 94000000 fastq records; Valid bc 76.69%
+#3 Processed 94200000 fastq records; Valid bc 76.69%
+#3 Processed 94400000 fastq records; Valid bc 76.69%
+#3 Processed 94600000 fastq records; Valid bc 76.69%
+#3 Processed 94800000 fastq records; Valid bc 76.69%
+#3 Processed 95000000 fastq records; Valid bc 76.69%
+#3 Processed 95200000 fastq records; Valid bc 76.69%
+#3 Processed 95400000 fastq records; Valid bc 76.69%
+#3 Processed 95600000 fastq records; Valid bc 76.69%
+#3 Processed 95800000 fastq records; Valid bc 76.69%
+#3 Processed 96000000 fastq records; Valid bc 76.69%
+#3 Processed 96200000 fastq records; Valid bc 76.69%
+#3 Processed 96400000 fastq records; Valid bc 76.69%
+#3 Processed 96600000 fastq records; Valid bc 76.69%
+#3 Processed 96800000 fastq records; Valid bc 76.69%
+#3 Processed 97000000 fastq records; Valid bc 76.7%
+#3 Processed 97200000 fastq records; Valid bc 76.7%
+#3 Processed 97400000 fastq records; Valid bc 76.7%
+#3 Processed 97600000 fastq records; Valid bc 76.7%
+#3 Processed 97800000 fastq records; Valid bc 76.7%
+#3 Processed 98000000 fastq records; Valid bc 76.7%
+#3 Processed 98200000 fastq records; Valid bc 76.7%
+#3 Processed 98400000 fastq records; Valid bc 76.7%
+#3 Processed 98600000 fastq records; Valid bc 76.7%
+#3 Processed 98800000 fastq records; Valid bc 76.7%
+#3 Processed 99000000 fastq records; Valid bc 76.7%
+#3 Processed 99200000 fastq records; Valid bc 76.7%
+#3 Processed 99400000 fastq records; Valid bc 76.7%
+#3 Processed 99600000 fastq records; Valid bc 76.71%
+#3 Processed 99800000 fastq records; Valid bc 76.71%
+#3 Processed 100000000 fastq records; Valid bc 76.71%
+#3 Processed 100200000 fastq records; Valid bc 76.71%
+#3 Processed 100400000 fastq records; Valid bc 76.71%
+#3 Processed 100600000 fastq records; Valid bc 76.71%
+#3 Processed 100800000 fastq records; Valid bc 76.71%
+#3 Processed 101000000 fastq records; Valid bc 76.71%
+#3 Processed 101200000 fastq records; Valid bc 76.71%
+#3 Processed 101400000 fastq records; Valid bc 76.71%
+#3 Processed 101600000 fastq records; Valid bc 76.71%
+#3 Processed 101800000 fastq records; Valid bc 76.71%
+#3 Processed 102000000 fastq records; Valid bc 76.71%
+#3 Processed 102200000 fastq records; Valid bc 76.71%
+#3 Processed 102400000 fastq records; Valid bc 76.72%
+#3 Processed 102600000 fastq records; Valid bc 76.72%
+#3 Processed 102800000 fastq records; Valid bc 76.72%
+#3 Processed 103000000 fastq records; Valid bc 76.72%
+#3 Processed 103200000 fastq records; Valid bc 76.72%
+#3 Processed 103400000 fastq records; Valid bc 76.72%
+#3 Processed 103600000 fastq records; Valid bc 76.72%
+#3 Processed 103800000 fastq records; Valid bc 76.72%
+#3 Processed 104000000 fastq records; Valid bc 76.72%
+#3 Processed 104200000 fastq records; Valid bc 76.72%
+#3 Processed 104400000 fastq records; Valid bc 76.72%
+#3 Processed 104600000 fastq records; Valid bc 76.72%
+#3 Processed 104800000 fastq records; Valid bc 76.72%
+#3 Processed 105000000 fastq records; Valid bc 76.72%
+#3 Processed 105200000 fastq records; Valid bc 76.72%
+#3 Processed 105400000 fastq records; Valid bc 76.72%
+#3 Processed 105600000 fastq records; Valid bc 76.72%
+#3 Processed 105800000 fastq records; Valid bc 76.72%
+#3 Processed 106000000 fastq records; Valid bc 76.72%
+#3 Processed 106200000 fastq records; Valid bc 76.73%
+#3 Processed 106400000 fastq records; Valid bc 76.73%
+#3 Processed 106600000 fastq records; Valid bc 76.73%
+#3 Processed 106800000 fastq records; Valid bc 76.73%
+#3 Processed 107000000 fastq records; Valid bc 76.73%
+#3 Processed 107200000 fastq records; Valid bc 76.73%
+#3 Processed 107400000 fastq records; Valid bc 76.73%
+#3 Processed 107600000 fastq records; Valid bc 76.72%
+#3 Processed 107800000 fastq records; Valid bc 76.72%
+#3 Processed 108000000 fastq records; Valid bc 76.73%
+#3 Processed 108200000 fastq records; Valid bc 76.73%
+#3 Processed 108400000 fastq records; Valid bc 76.73%
+#3 Processed 108600000 fastq records; Valid bc 76.73%
+#3 Processed 108800000 fastq records; Valid bc 76.73%
+#3 Processed 109000000 fastq records; Valid bc 76.73%
+#3 Processed 109200000 fastq records; Valid bc 76.73%
+#3 Processed 109400000 fastq records; Valid bc 76.73%
+#3 Processed 109600000 fastq records; Valid bc 76.73%
+#3 Processed 109800000 fastq records; Valid bc 76.73%
+#3 Processed 110000000 fastq records; Valid bc 76.73%
+#3 Processed 110200000 fastq records; Valid bc 76.73%
+#3 Processed 110400000 fastq records; Valid bc 76.73%
+#3 Processed 110600000 fastq records; Valid bc 76.73%
+#3 Processed 110800000 fastq records; Valid bc 76.73%
+#3 Processed 111000000 fastq records; Valid bc 76.73%
+#3 Processed 111200000 fastq records; Valid bc 76.73%
+#3 Processed 111400000 fastq records; Valid bc 76.73%
+#3 Processed 111600000 fastq records; Valid bc 76.74%
+#3 Processed 111800000 fastq records; Valid bc 76.74%
+#3 Processed 112000000 fastq records; Valid bc 76.74%
+#3 Processed 112200000 fastq records; Valid bc 76.74%
+#3 Processed 112400000 fastq records; Valid bc 76.74%
+#3 Processed 112600000 fastq records; Valid bc 76.74%
+#3 Processed 112800000 fastq records; Valid bc 76.74%
+#3 Processed 113000000 fastq records; Valid bc 76.74%
+#3 Processed 113200000 fastq records; Valid bc 76.74%
+#3 Processed 113400000 fastq records; Valid bc 76.74%
+#3 Processed 113600000 fastq records; Valid bc 76.74%
+#3 Processed 113800000 fastq records; Valid bc 76.74%
+#3 Processed 114000000 fastq records; Valid bc 76.74%
+#3 Processed 114200000 fastq records; Valid bc 76.74%
+#3 Processed 114400000 fastq records; Valid bc 76.74%
+#3 Processed 114600000 fastq records; Valid bc 76.74%
+#3 Processed 114800000 fastq records; Valid bc 76.74%
+#3 Processed 115000000 fastq records; Valid bc 76.75%
+#3 Processed 115200000 fastq records; Valid bc 76.75%
+#3 Processed 115400000 fastq records; Valid bc 76.75%
+#3 Processed 115600000 fastq records; Valid bc 76.75%
+#3 Processed 115800000 fastq records; Valid bc 76.75%
+#3 Processed 116000000 fastq records; Valid bc 76.75%
+#3 Processed 116200000 fastq records; Valid bc 76.75%
+#3 Processed 116400000 fastq records; Valid bc 76.75%
+#3 Processed 116600000 fastq records; Valid bc 76.75%
+#3 Processed 116800000 fastq records; Valid bc 76.75%
+#3 Processed 117000000 fastq records; Valid bc 76.75%
+#3 Processed 117200000 fastq records; Valid bc 76.75%
+#3 Processed 117400000 fastq records; Valid bc 76.75%
+#3 Processed 117600000 fastq records; Valid bc 76.75%
+#3 Processed 117800000 fastq records; Valid bc 76.75%
+#3 Processed 118000000 fastq records; Valid bc 76.75%
+#3 Processed 118200000 fastq records; Valid bc 76.75%
+#3 Processed 118400000 fastq records; Valid bc 76.75%
+#3 Processed 118600000 fastq records; Valid bc 76.75%
+#3 Processed 118800000 fastq records; Valid bc 76.75%
+#3 Processed 119000000 fastq records; Valid bc 76.75%
+#3 Processed 119200000 fastq records; Valid bc 76.76%
+#3 Processed 119400000 fastq records; Valid bc 76.76%
+#3 Processed 119600000 fastq records; Valid bc 76.76%
+#3 Processed 119800000 fastq records; Valid bc 76.76%
+#3 Processed 120000000 fastq records; Valid bc 76.76%
+#3 Processed 120200000 fastq records; Valid bc 76.76%
+#3 Processed 120400000 fastq records; Valid bc 76.75%
+#3 Processed 120600000 fastq records; Valid bc 76.75%
+#3 Processed 120800000 fastq records; Valid bc 76.75%
+#3 Processed 121000000 fastq records; Valid bc 76.75%
+#3 Processed 121200000 fastq records; Valid bc 76.75%
+#3 Processed 121400000 fastq records; Valid bc 76.75%
+#3 Processed 121600000 fastq records; Valid bc 76.75%
+#3 Processed 121800000 fastq records; Valid bc 76.75%
+#3 Processed 122000000 fastq records; Valid bc 76.75%
+#3 Processed 122200000 fastq records; Valid bc 76.76%
+#3 Processed 122400000 fastq records; Valid bc 76.76%
+#3 Processed 122600000 fastq records; Valid bc 76.76%
+#3 Processed 122800000 fastq records; Valid bc 76.76%
+#3 Processed 123000000 fastq records; Valid bc 76.76%
+#3 Processed 123200000 fastq records; Valid bc 76.76%
+#3 Processed 123400000 fastq records; Valid bc 76.76%
+#3 Processed 123600000 fastq records; Valid bc 76.76%
+#3 Processed 123800000 fastq records; Valid bc 76.76%
+#3 Processed 124000000 fastq records; Valid bc 76.76%
+#3 Processed 124200000 fastq records; Valid bc 76.76%
+#3 Processed 124400000 fastq records; Valid bc 76.76%
+#3 Processed 124600000 fastq records; Valid bc 76.76%
+#3 Processed 124800000 fastq records; Valid bc 76.76%
+#3 Processed 125000000 fastq records; Valid bc 76.76%
+#3 Processed 125200000 fastq records; Valid bc 76.76%
+#3 Processed 125400000 fastq records; Valid bc 76.76%
+#3 Processed 125600000 fastq records; Valid bc 76.76%
+#3 Processed 125800000 fastq records; Valid bc 76.76%
+#3 Processed 126000000 fastq records; Valid bc 76.76%
+#3 Processed 126200000 fastq records; Valid bc 76.76%
+#3 Processed 126400000 fastq records; Valid bc 76.76%
+#3 Processed 126600000 fastq records; Valid bc 76.76%
+#3 Processed 126800000 fastq records; Valid bc 76.77%
+#3 Processed 127000000 fastq records; Valid bc 76.77%
+#3 Processed 127200000 fastq records; Valid bc 76.77%
+#3 Processed 127400000 fastq records; Valid bc 76.77%
+#3 Processed 127600000 fastq records; Valid bc 76.77%
+#3 Processed 127800000 fastq records; Valid bc 76.77%
+#3 Processed 128000000 fastq records; Valid bc 76.77%
+#3 Processed 128200000 fastq records; Valid bc 76.77%
+#3 Processed 128400000 fastq records; Valid bc 76.77%
+#3 Processed 128600000 fastq records; Valid bc 76.77%
+#3 Processed 128800000 fastq records; Valid bc 76.77%
+#3 Processed 129000000 fastq records; Valid bc 76.77%
+#3 Processed 129200000 fastq records; Valid bc 76.77%
+#3 Processed 129400000 fastq records; Valid bc 76.77%
+#3 Processed 129600000 fastq records; Valid bc 76.77%
+#3 Processed 129800000 fastq records; Valid bc 76.77%
+#3 Processed 130000000 fastq records; Valid bc 76.77%
+#3 Processed 130200000 fastq records; Valid bc 76.78%
+#3 Processed 130400000 fastq records; Valid bc 76.78%
+#3 Processed 130600000 fastq records; Valid bc 76.78%
+#3 Processed 130800000 fastq records; Valid bc 76.78%
+#3 Processed 131000000 fastq records; Valid bc 76.78%
+#3 Processed 131200000 fastq records; Valid bc 76.78%
+#3 Processed 131400000 fastq records; Valid bc 76.78%
+#3 Processed 131600000 fastq records; Valid bc 76.78%
+#3 Processed 131800000 fastq records; Valid bc 76.78%
+#3 Processed 132000000 fastq records; Valid bc 76.78%
+#3 Processed 132200000 fastq records; Valid bc 76.78%
+#3 Processed 132400000 fastq records; Valid bc 76.78%
+#3 Processed 132600000 fastq records; Valid bc 76.78%
+#3 Processed 132800000 fastq records; Valid bc 76.78%
+#3 Processed 133000000 fastq records; Valid bc 76.78%
+#3 Processed 133200000 fastq records; Valid bc 76.78%
+#3 Processed 133400000 fastq records; Valid bc 76.78%
+#3 Processed 133600000 fastq records; Valid bc 76.78%
+#3 Processed 133800000 fastq records; Valid bc 76.78%
+#3 Processed 134000000 fastq records; Valid bc 76.78%
+#3 Processed 134200000 fastq records; Valid bc 76.78%
+#3 Processed 134400000 fastq records; Valid bc 76.78%
+#3 Processed 134600000 fastq records; Valid bc 76.78%
+#3 Processed 134800000 fastq records; Valid bc 76.78%
+#3 Processed 135000000 fastq records; Valid bc 76.78%
+#3 Processed 135200000 fastq records; Valid bc 76.78%
+#3 Processed 135400000 fastq records; Valid bc 76.78%
+#3 Processed 135600000 fastq records; Valid bc 76.78%
+#3 Processed 135800000 fastq records; Valid bc 76.78%
+#3 Processed 136000000 fastq records; Valid bc 76.78%
+#3 Processed 136200000 fastq records; Valid bc 76.78%
+#3 Processed 136400000 fastq records; Valid bc 76.78%
+#3 Processed 136600000 fastq records; Valid bc 76.78%
+#3 Processed 136800000 fastq records; Valid bc 76.78%
+#3 Processed 137000000 fastq records; Valid bc 76.78%
+#3 Processed 137200000 fastq records; Valid bc 76.78%
+#3 Processed 137400000 fastq records; Valid bc 76.78%
+#3 Processed 137600000 fastq records; Valid bc 76.78%
+#3 Processed 137800000 fastq records; Valid bc 76.78%
+#3 Processed 138000000 fastq records; Valid bc 76.78%
+#3 Processed 138200000 fastq records; Valid bc 76.78%
+#3 Processed 138400000 fastq records; Valid bc 76.79%
+#3 Processed 138600000 fastq records; Valid bc 76.78%
+#3 Processed 138800000 fastq records; Valid bc 76.79%
+#3 Processed 139000000 fastq records; Valid bc 76.79%
+#3 Processed 139200000 fastq records; Valid bc 76.79%
+#3 Processed 139400000 fastq records; Valid bc 76.79%
+#3 Processed 139600000 fastq records; Valid bc 76.79%
+#3 Processed 139800000 fastq records; Valid bc 76.79%
+#3 Processed 140000000 fastq records; Valid bc 76.79%
+#3 Processed 140200000 fastq records; Valid bc 76.79%
+#3 Processed 140400000 fastq records; Valid bc 76.79%
+#3 Processed 140600000 fastq records; Valid bc 76.79%
+#3 Processed 140800000 fastq records; Valid bc 76.79%
+#3 Processed 141000000 fastq records; Valid bc 76.79%
+#3 Processed 141200000 fastq records; Valid bc 76.79%
+#3 Processed 141400000 fastq records; Valid bc 76.79%
+#3 Processed 141600000 fastq records; Valid bc 76.79%
+#3 Processed 141800000 fastq records; Valid bc 76.79%
+#3 Processed 142000000 fastq records; Valid bc 76.79%
+#3 Processed 142200000 fastq records; Valid bc 76.79%
+#3 Processed 142400000 fastq records; Valid bc 76.79%
+#3 Processed 142600000 fastq records; Valid bc 76.79%
+#3 Processed 142800000 fastq records; Valid bc 76.79%
+#3 Processed 143000000 fastq records; Valid bc 76.79%
+#3 Processed 143200000 fastq records; Valid bc 76.79%
+#3 Processed 143400000 fastq records; Valid bc 76.79%
+#3 Processed 143600000 fastq records; Valid bc 76.8%
+#3 Processed 143800000 fastq records; Valid bc 76.8%
+#3 Processed 144000000 fastq records; Valid bc 76.8%
+#3 Processed 144200000 fastq records; Valid bc 76.8%
+#3 Processed 144400000 fastq records; Valid bc 76.8%
+#3 Processed 144600000 fastq records; Valid bc 76.8%
+#3 Processed 144800000 fastq records; Valid bc 76.8%
+#3 Processed 145000000 fastq records; Valid bc 76.8%
+#3 Processed 145200000 fastq records; Valid bc 76.8%
+#3 Processed 145400000 fastq records; Valid bc 76.8%
+#3 Processed 145600000 fastq records; Valid bc 76.8%
+#3 Processed 145800000 fastq records; Valid bc 76.8%
+#3 Processed 146000000 fastq records; Valid bc 76.8%
+#3 Processed 146200000 fastq records; Valid bc 76.8%
+#3 Processed 146400000 fastq records; Valid bc 76.8%
+#3 Processed 146600000 fastq records; Valid bc 76.8%
+#3 Processed 146800000 fastq records; Valid bc 76.8%
+#3 Processed 147000000 fastq records; Valid bc 76.8%
+#3 Processed 147200000 fastq records; Valid bc 76.8%
+#3 Processed 147400000 fastq records; Valid bc 76.8%
+#3 Processed 147600000 fastq records; Valid bc 76.79%
+#3 Processed 147800000 fastq records; Valid bc 76.8%
+#3 Processed 148000000 fastq records; Valid bc 76.8%
+#3 Processed 148200000 fastq records; Valid bc 76.8%
+#3 Processed 148400000 fastq records; Valid bc 76.78%
+#3 Processed 148600000 fastq records; Valid bc 76.77%
+#3 Processed 148800000 fastq records; Valid bc 76.75%
+#3 Processed 149000000 fastq records; Valid bc 76.75%
+#3 Processed 149200000 fastq records; Valid bc 76.75%
+#3 Processed 149400000 fastq records; Valid bc 76.75%
+#3 Processed 149600000 fastq records; Valid bc 76.75%
+#3 Processed 149800000 fastq records; Valid bc 76.75%
+#3 Processed 150000000 fastq records; Valid bc 76.75%
+#3 Processed 150200000 fastq records; Valid bc 76.75%
+#3 Processed 150400000 fastq records; Valid bc 76.75%
+#3 Processed 150600000 fastq records; Valid bc 76.75%
+#3 Processed 150800000 fastq records; Valid bc 76.75%
+#3 Processed 151000000 fastq records; Valid bc 76.75%
+#3 Processed 151200000 fastq records; Valid bc 76.75%
+#3 Processed 151400000 fastq records; Valid bc 76.75%
+#3 Processed 151600000 fastq records; Valid bc 76.75%
+#3 Processed 151800000 fastq records; Valid bc 76.75%
+#3 Processed 152000000 fastq records; Valid bc 76.75%
+#3 Processed 152200000 fastq records; Valid bc 76.75%
+#3 Processed 152400000 fastq records; Valid bc 76.75%
+#3 Processed 152600000 fastq records; Valid bc 76.75%
+#3 Processed 152800000 fastq records; Valid bc 76.75%
+#3 Processed 153000000 fastq records; Valid bc 76.76%
+#3 Processed 153200000 fastq records; Valid bc 76.76%
+#3 Processed 153400000 fastq records; Valid bc 76.76%
+#3 Processed 153600000 fastq records; Valid bc 76.76%
+#3 Processed 153800000 fastq records; Valid bc 76.76%
+#3 Processed 154000000 fastq records; Valid bc 76.76%
+#3 Processed 154200000 fastq records; Valid bc 76.76%
+#3 Processed 154400000 fastq records; Valid bc 76.76%
+#3 Processed 154600000 fastq records; Valid bc 76.76%
+#3 Processed 154800000 fastq records; Valid bc 76.76%
+#3 Processed 155000000 fastq records; Valid bc 76.76%
+#3 Processed 155200000 fastq records; Valid bc 76.76%
+#3 Processed 155400000 fastq records; Valid bc 76.76%
+#3 Processed 155600000 fastq records; Valid bc 76.76%
+#3 Processed 155800000 fastq records; Valid bc 76.76%
+#3 Processed 156000000 fastq records; Valid bc 76.76%
+#3 Processed 156200000 fastq records; Valid bc 76.76%
+#3 Processed 156400000 fastq records; Valid bc 76.76%
+#3 Processed 156600000 fastq records; Valid bc 76.76%
+#3 Processed 156800000 fastq records; Valid bc 76.76%
+#3 Processed 157000000 fastq records; Valid bc 76.76%
+#3 Processed 157200000 fastq records; Valid bc 76.76%
+#3 Processed 157400000 fastq records; Valid bc 76.76%
+#3 Processed 157600000 fastq records; Valid bc 76.76%
+#3 Processed 157800000 fastq records; Valid bc 76.76%
+#3 Processed 158000000 fastq records; Valid bc 76.77%
+#3 Processed 158200000 fastq records; Valid bc 76.77%
+#3 Processed 158400000 fastq records; Valid bc 76.77%
+#3 Processed 158600000 fastq records; Valid bc 76.77%
+#3 Processed 158800000 fastq records; Valid bc 76.77%
+#3 Processed 159000000 fastq records; Valid bc 76.77%
+#3 Processed 159200000 fastq records; Valid bc 76.77%
+#2 Preprocess total 159389321 reads, 122359547 valid BC 76.77%
+#2 Preprocess too short 0 0.0%, with ambig 117218 0.07%
+# Wrote 6 x 2 table to analysis/mclover3_D10_12_2024-07-09/process/sequencing_stats.csv
+#2 PF_STAT_SEQ Row_1_of_8                            value
+#2 PF_STAT_SEQ Row_2_of_8  statistic                      
+#2 PF_STAT_SEQ Row_3_of_8  bc1_Q30            9.510000e-01
+#2 PF_STAT_SEQ Row_4_of_8  bc2_Q30            9.700000e-01
+#2 PF_STAT_SEQ Row_5_of_8  bc3_Q30            9.750000e-01
+#2 PF_STAT_SEQ Row_6_of_8  cDNA_Q30           9.494000e-01
+# Wrote 12 x 2 table to analysis/mclover3_D10_12_2024-07-09/process/pre_align_stats.csv
+#2 PF_STAT_PIPE Row_1_of_14                              value
+#2 PF_STAT_PIPE Row_2_of_14  statistic                        
+#2 PF_STAT_PIPE Row_3_of_14  bc1_perfrac          7.420000e-01
+#2 PF_STAT_PIPE Row_4_of_14  bc2_perfrac          8.240000e-01
+#2 PF_STAT_PIPE Row_5_of_14  bc3_perfrac          9.050000e-01
+#2 PF_STAT_PIPE Row_6_of_14  bc_edit_dist_0       1.163281e+08
+# Wrote 16 x 2 table to analysis/mclover3_D10_12_2024-07-09/process/bcc_read_length_counts.csv
+#2 PF_BCC_READ_LENS Row_1_of_18             count
+#2 PF_BCC_READ_LENS Row_2_of_18  length          
+#2 PF_BCC_READ_LENS Row_3_of_18  119        97011
+#2 PF_BCC_READ_LENS Row_4_of_18  120     34928158
+#2 PF_BCC_READ_LENS Row_5_of_18  121      3963088
+#2 PF_BCC_READ_LENS Row_6_of_18  122      8111572
+#2 Compressing analysis/mclover3_D10_12_2024-07-09/process/barcode_head.fastq
+#2 MemStatus: Preprocess  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Preprocess  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+#2 MemStatus: Preprocess  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Preprocess  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+# << Running Preprocess; Status True; Duration 0:37:41.91
+
+#2 MemStatus: Alignment  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Alignment  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+# >> Running Alignment
+#2 MemStatus: Alignment  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Alignment  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+#2 Read Dataframe: Dims 12 x 1, Mem 192B (192) from analysis/mclover3_D10_12_2024-07-09/process/pre_align_stats.csv
+#2 Read Dataframe: Dims 6 x 1, Mem 96B (96) from analysis/mclover3_D10_12_2024-07-09/process/sequencing_stats.csv
+# # Subproc: Call:   /nfs/home/jhuang45/.conda/envs/spipe/bin/STAR --genomeDir genomes/rn7_no_contigs_mclover3 --runThreadN 32 --readFilesIn analysis/mclover3_D10_12_2024-07-09/process/barcode_head.fastq.gz --outFileNamePrefix analysis/mclover3_D10_12_2024-07-09/process/barcode_head --outSAMtype BAM Unsorted --readFilesCommand zcat --outFilterMultimapNmax 3
+# Subproc: Status: Success
+# Subproc: Output: (first 100 char)
+	/nfs/home/jhuang45/.conda/envs/spipe/bin/STAR-avx2 --genomeDir genomes/rn7_no_contigs_mclover3 --ru
+# Subproc: Duration 0:07:42.15
+# STAR output saved to analysis/mclover3_D10_12_2024-07-09/process/STAR_align_sdtout.txt
+# Wrote 16 x 2 table to analysis/mclover3_D10_12_2024-07-09/process/pre_align_stats.csv
+#2 PF_STAT_PIPE Row_1_of_18                               value
+#2 PF_STAT_PIPE Row_2_of_18  statistic                         
+#2 PF_STAT_PIPE Row_3_of_18  bc1_perfrac           7.420000e-01
+#2 PF_STAT_PIPE Row_4_of_18  bc2_perfrac           8.240000e-01
+#2 PF_STAT_PIPE Row_5_of_18  bc3_perfrac           9.050000e-01
+#2 PF_STAT_PIPE Row_6_of_18  bc_edit_dist_0        1.163281e+08
+#2 Compressing analysis/mclover3_D10_12_2024-07-09/process/barcode_headSJ.out.tab
+#2 MemStatus: Alignment  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Alignment  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+#2 MemStatus: Alignment  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Alignment  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+# << Running Alignment; Status True; Duration 0:07:44.59
+
+#2 MemStatus: Postprocess  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Postprocess  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+# >> Running Postprocess
+#2 MemStatus: Postprocess  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Postprocess  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+# # Subproc: Call:   /nfs/home/jhuang45/.conda/envs/spipe/bin/samtools sort -n --threads 32 -T analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_sorted -o analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_sorted.bam analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned.out.bam
+# Subproc: Status: Success
+# Subproc: Output: (first 100 char)
+[bam_sort_core] merging from 1 files and 32 in-memory blocks...
+
+# Subproc: Duration 0:04:45.55
+#2 MemStatus: Postprocess  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Postprocess  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+#2 MemStatus: Postprocess  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Postprocess  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+# << Running Postprocess; Status True; Duration 0:04:45.60
+
+#2 MemStatus: Molinfo  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Molinfo  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+# >> Running Molinfo
+#2 MemStatus: Molinfo  4.4G proc, 1.1G rss, 3.3G vms, 1.1% usd, 1.9T avail
+#2 DskStatus: Molinfo  '/nalysis/' 3.6P total, 2.4P (66.85%) used, 1.0P (28.1%) free
+# Splitting bam file (32 threads)
+# Aligned reads = 100709976, total reads to process = 100709976
+#2 Reads per chunk 3147187
+#2 Starting thread 1
+#2 Starting thread 2
+#2 Starting thread 3
+#2 Starting thread 4
+#2 Starting thread 5
+#2 Starting thread 6
+#2 Starting thread 7
+#2 Starting thread 8
+#2 Starting thread 9
+#2 Starting thread 10
+#2 Starting thread 11
+#2 Starting thread 12
+#2 Starting thread 13
+#2 Starting thread 14
+#2 Starting thread 15
+#2 Starting thread 16
+#2 Starting thread 17
+#2 Starting thread 18
+#2 Starting thread 19
+#2 Starting thread 20
+#2 Starting thread 21
+#2 Starting thread 22
+#2 Starting thread 23
+#2 Starting thread 24
+#2 Starting thread 25
+#2 Starting thread 26
+#2 Starting thread 27
+#2 Starting thread 28
+#2 Starting thread 29
+#2 Starting thread 30
+#2 Starting thread 31
+#2 Starting thread 32
+#3 Molinfo processed 100000 aligned reads...  thread 12
+#3 Molinfo processed 100000 aligned reads...  thread 5
+#3 Molinfo processed 100000 aligned reads...  thread 13
+#3 Molinfo processed 100000 aligned reads...  thread 17
+#3 Molinfo processed 100000 aligned reads...  thread 25
+#3 Molinfo processed 100000 aligned reads...  thread 15
+#3 Molinfo processed 100000 aligned reads...  thread 18
+#3 Molinfo processed 100000 aligned reads...  thread 21
+#3 Molinfo processed 100000 aligned reads...  thread 14
+#3 Molinfo processed 100000 aligned reads...  thread 2
+#3 Molinfo processed 100000 aligned reads...  thread 11
+#3 Molinfo processed 100000 aligned reads...  thread 1
+#3 Molinfo processed 100000 aligned reads...  thread 3
+#3 Molinfo processed 100000 aligned reads...  thread 4
+#3 Molinfo processed 100000 aligned reads...  thread 20
+#3 Molinfo processed 100000 aligned reads...  thread 8
+#3 Molinfo processed 100000 aligned reads...  thread 26
+#3 Molinfo processed 100000 aligned reads...  thread 23
+#3 Molinfo processed 100000 aligned reads...  thread 28
+#3 Molinfo processed 100000 aligned reads...  thread 7
+#3 Molinfo processed 100000 aligned reads...  thread 6
+#3 Molinfo processed 100000 aligned reads...  thread 22
+#3 Molinfo processed 100000 aligned reads...  thread 32
+#3 Molinfo processed 100000 aligned reads...  thread 30
+#3 Molinfo processed 100000 aligned reads...  thread 16
+#3 Molinfo processed 100000 aligned reads...  thread 27
+#3 Molinfo processed 100000 aligned reads...  thread 24
+#3 Molinfo processed 100000 aligned reads...  thread 9
+#3 Molinfo processed 100000 aligned reads...  thread 29
+#3 Molinfo processed 100000 aligned reads...  thread 31
+#3 Molinfo processed 100000 aligned reads...  thread 10
+#3 Molinfo processed 100000 aligned reads...  thread 19
+#3 Molinfo processed 200000 aligned reads...  thread 5
+#3 Molinfo processed 200000 aligned reads...  thread 25
+#3 Molinfo processed 200000 aligned reads...  thread 18
+#3 Molinfo processed 200000 aligned reads...  thread 17
+#3 Molinfo processed 200000 aligned reads...  thread 12
+#3 Molinfo processed 200000 aligned reads...  thread 21
+#3 Molinfo processed 200000 aligned reads...  thread 1
+#3 Molinfo processed 200000 aligned reads...  thread 14
+#3 Molinfo processed 200000 aligned reads...  thread 2
+#3 Molinfo processed 200000 aligned reads...  thread 15
+#3 Molinfo processed 200000 aligned reads...  thread 4
+#3 Molinfo processed 200000 aligned reads...  thread 8
+#3 Molinfo processed 200000 aligned reads...  thread 26
+#3 Molinfo processed 200000 aligned reads...  thread 13
+#3 Molinfo processed 200000 aligned reads...  thread 20
+#3 Molinfo processed 200000 aligned reads...  thread 16
+#3 Molinfo processed 200000 aligned reads...  thread 24
+#3 Molinfo processed 200000 aligned reads...  thread 22
+#3 Molinfo processed 200000 aligned reads...  thread 6
+#3 Molinfo processed 200000 aligned reads...  thread 3
+#3 Molinfo processed 200000 aligned reads...  thread 27
+#3 Molinfo processed 200000 aligned reads...  thread 23
+#3 Molinfo processed 200000 aligned reads...  thread 7
+#3 Molinfo processed 200000 aligned reads...  thread 11
+#3 Molinfo processed 200000 aligned reads...  thread 32
+#3 Molinfo processed 200000 aligned reads...  thread 10
+#3 Molinfo processed 200000 aligned reads...  thread 19
+#3 Molinfo processed 200000 aligned reads...  thread 28
+#3 Molinfo processed 200000 aligned reads...  thread 31
+#3 Molinfo processed 200000 aligned reads...  thread 30
+#3 Molinfo processed 200000 aligned reads...  thread 9
+#3 Molinfo processed 200000 aligned reads...  thread 29
+#3 Molinfo processed 300000 aligned reads...  thread 5
+#3 Molinfo processed 300000 aligned reads...  thread 12
+#3 Molinfo processed 300000 aligned reads...  thread 25
+#3 Molinfo processed 300000 aligned reads...  thread 17
+#3 Molinfo processed 300000 aligned reads...  thread 18
+#3 Molinfo processed 300000 aligned reads...  thread 21
+#3 Molinfo processed 300000 aligned reads...  thread 15
+#3 Molinfo processed 300000 aligned reads...  thread 4
+#3 Molinfo processed 300000 aligned reads...  thread 14
+#3 Molinfo processed 300000 aligned reads...  thread 2
+#3 Molinfo processed 300000 aligned reads...  thread 1
+#3 Molinfo processed 300000 aligned reads...  thread 13
+#3 Molinfo processed 300000 aligned reads...  thread 23
+#3 Molinfo processed 300000 aligned reads...  thread 3
+#3 Molinfo processed 300000 aligned reads...  thread 20
+#3 Molinfo processed 300000 aligned reads...  thread 24
+#3 Molinfo processed 300000 aligned reads...  thread 6
+#3 Molinfo processed 300000 aligned reads...  thread 27
+#3 Molinfo processed 300000 aligned reads...  thread 22
+#3 Molinfo processed 300000 aligned reads...  thread 26
+#3 Molinfo processed 300000 aligned reads...  thread 16
+#3 Molinfo processed 300000 aligned reads...  thread 7
+#3 Molinfo processed 400000 aligned reads...  thread 5
+#3 Molinfo processed 300000 aligned reads...  thread 32
+#3 Molinfo processed 300000 aligned reads...  thread 8
+#3 Molinfo processed 300000 aligned reads...  thread 11
+#3 Molinfo processed 300000 aligned reads...  thread 19
+#3 Molinfo processed 300000 aligned reads...  thread 30
+#3 Molinfo processed 300000 aligned reads...  thread 31
+#3 Molinfo processed 300000 aligned reads...  thread 9
+#3 Molinfo processed 400000 aligned reads...  thread 17
+#3 Molinfo processed 400000 aligned reads...  thread 12
+#3 Molinfo processed 300000 aligned reads...  thread 28
+#3 Molinfo processed 400000 aligned reads...  thread 25
+#3 Molinfo processed 300000 aligned reads...  thread 10
+#3 Molinfo processed 300000 aligned reads...  thread 29
+#3 Molinfo processed 400000 aligned reads...  thread 18
+#3 Molinfo processed 400000 aligned reads...  thread 21
+#3 Molinfo processed 400000 aligned reads...  thread 15
+#3 Molinfo processed 400000 aligned reads...  thread 4
+#3 Molinfo processed 400000 aligned reads...  thread 2
+#3 Molinfo processed 400000 aligned reads...  thread 14
+#3 Molinfo processed 400000 aligned reads...  thread 13
+#3 Molinfo processed 400000 aligned reads...  thread 1
+#3 Molinfo processed 400000 aligned reads...  thread 20
+#3 Molinfo processed 400000 aligned reads...  thread 23
+#3 Molinfo processed 500000 aligned reads...  thread 5
+#3 Molinfo processed 400000 aligned reads...  thread 3
+#3 Molinfo processed 400000 aligned reads...  thread 24
+#3 Molinfo processed 400000 aligned reads...  thread 6
+#3 Molinfo processed 400000 aligned reads...  thread 27
+#3 Molinfo processed 400000 aligned reads...  thread 22
+#3 Molinfo processed 400000 aligned reads...  thread 16
+#3 Molinfo processed 400000 aligned reads...  thread 7
+#3 Molinfo processed 400000 aligned reads...  thread 26
+#3 Molinfo processed 400000 aligned reads...  thread 32
+#3 Molinfo processed 500000 aligned reads...  thread 17
+#3 Molinfo processed 400000 aligned reads...  thread 19
+#3 Molinfo processed 400000 aligned reads...  thread 11
+#3 Molinfo processed 400000 aligned reads...  thread 30
+#3 Molinfo processed 400000 aligned reads...  thread 8
+#3 Molinfo processed 500000 aligned reads...  thread 18
+#3 Molinfo processed 500000 aligned reads...  thread 25
+#3 Molinfo processed 400000 aligned reads...  thread 9
+#3 Molinfo processed 400000 aligned reads...  thread 31
+#3 Molinfo processed 500000 aligned reads...  thread 12
+#3 Molinfo processed 400000 aligned reads...  thread 10
+#3 Molinfo processed 500000 aligned reads...  thread 14
+#3 Molinfo processed 400000 aligned reads...  thread 29
+#3 Molinfo processed 500000 aligned reads...  thread 15
+#3 Molinfo processed 500000 aligned reads...  thread 2
+#3 Molinfo processed 500000 aligned reads...  thread 21
+#3 Molinfo processed 500000 aligned reads...  thread 4
+#3 Molinfo processed 400000 aligned reads...  thread 28
+#3 Molinfo processed 600000 aligned reads...  thread 5
+#3 Molinfo processed 500000 aligned reads...  thread 20
+#3 Molinfo processed 500000 aligned reads...  thread 16
+#3 Molinfo processed 500000 aligned reads...  thread 13
+#3 Molinfo processed 500000 aligned reads...  thread 1
+#3 Molinfo processed 500000 aligned reads...  thread 6
+#3 Molinfo processed 500000 aligned reads...  thread 24
+#3 Molinfo processed 500000 aligned reads...  thread 22
+#3 Molinfo processed 500000 aligned reads...  thread 26
+#3 Molinfo processed 500000 aligned reads...  thread 23
+#3 Molinfo processed 500000 aligned reads...  thread 7
+#3 Molinfo processed 600000 aligned reads...  thread 17
+#3 Molinfo processed 500000 aligned reads...  thread 27
+#3 Molinfo processed 500000 aligned reads...  thread 3
+#3 Molinfo processed 600000 aligned reads...  thread 18
+#3 Molinfo processed 500000 aligned reads...  thread 32
+#3 Molinfo processed 500000 aligned reads...  thread 11
+#3 Molinfo processed 600000 aligned reads...  thread 25
+#3 Molinfo processed 500000 aligned reads...  thread 19
+#3 Molinfo processed 500000 aligned reads...  thread 30
+#3 Molinfo processed 500000 aligned reads...  thread 8
+#3 Molinfo processed 500000 aligned reads...  thread 9
+#3 Molinfo processed 600000 aligned reads...  thread 15
+#3 Molinfo processed 600000 aligned reads...  thread 12
+#3 Molinfo processed 500000 aligned reads...  thread 31
+#3 Molinfo processed 600000 aligned reads...  thread 14
+#3 Molinfo processed 600000 aligned reads...  thread 2
+#3 Molinfo processed 600000 aligned reads...  thread 4
+#3 Molinfo processed 500000 aligned reads...  thread 10
+#3 Molinfo processed 700000 aligned reads...  thread 5
+#3 Molinfo processed 600000 aligned reads...  thread 21
+#3 Molinfo processed 500000 aligned reads...  thread 29
+#3 Molinfo processed 600000 aligned reads...  thread 13
+#3 Molinfo processed 600000 aligned reads...  thread 6
+#3 Molinfo processed 600000 aligned reads...  thread 20
+#3 Molinfo processed 600000 aligned reads...  thread 16
+#3 Molinfo processed 600000 aligned reads...  thread 1
+#3 Molinfo processed 500000 aligned reads...  thread 28
+#3 Molinfo processed 600000 aligned reads...  thread 22
+#3 Molinfo processed 600000 aligned reads...  thread 7
+#3 Molinfo processed 600000 aligned reads...  thread 24
+#3 Molinfo processed 700000 aligned reads...  thread 17
+#3 Molinfo processed 600000 aligned reads...  thread 26
+#3 Molinfo processed 600000 aligned reads...  thread 23
+#3 Molinfo processed 600000 aligned reads...  thread 3
+#3 Molinfo processed 600000 aligned reads...  thread 27
+#3 Molinfo processed 700000 aligned reads...  thread 18
+#3 Molinfo processed 600000 aligned reads...  thread 11
+#3 Molinfo processed 700000 aligned reads...  thread 25
+#3 Molinfo processed 700000 aligned reads...  thread 4
+#3 Molinfo processed 600000 aligned reads...  thread 9
+#3 Molinfo processed 700000 aligned reads...  thread 15
+#3 Molinfo processed 600000 aligned reads...  thread 19
+#3 Molinfo processed 700000 aligned reads...  thread 12
+#3 Molinfo processed 700000 aligned reads...  thread 2
+#3 Molinfo processed 600000 aligned reads...  thread 30
+#3 Molinfo processed 600000 aligned reads...  thread 8
+#3 Molinfo processed 700000 aligned reads...  thread 14
+#3 Molinfo processed 800000 aligned reads...  thread 5
+#3 Molinfo processed 700000 aligned reads...  thread 21
+#3 Molinfo processed 600000 aligned reads...  thread 29
+#3 Molinfo processed 700000 aligned reads...  thread 6
+#3 Molinfo processed 600000 aligned reads...  thread 32
+#3 Molinfo processed 600000 aligned reads...  thread 31
+#3 Molinfo processed 600000 aligned reads...  thread 10
+#3 Molinfo processed 700000 aligned reads...  thread 1
+#3 Molinfo processed 700000 aligned reads...  thread 16
+#3 Molinfo processed 700000 aligned reads...  thread 20
+#3 Molinfo processed 700000 aligned reads...  thread 13
+#3 Molinfo processed 800000 aligned reads...  thread 17
+#3 Molinfo processed 700000 aligned reads...  thread 22
+#3 Molinfo processed 700000 aligned reads...  thread 24
+#3 Molinfo processed 700000 aligned reads...  thread 7
+#3 Molinfo processed 700000 aligned reads...  thread 3
+#3 Molinfo processed 700000 aligned reads...  thread 26
+#3 Molinfo processed 600000 aligned reads...  thread 28
+#3 Molinfo processed 700000 aligned reads...  thread 11
+#3 Molinfo processed 700000 aligned reads...  thread 23
+#3 Molinfo processed 800000 aligned reads...  thread 4
+#3 Molinfo processed 800000 aligned reads...  thread 25
+#3 Molinfo processed 800000 aligned reads...  thread 18
+#3 Molinfo processed 700000 aligned reads...  thread 9
+#3 Molinfo processed 900000 aligned reads...  thread 5
+#3 Molinfo processed 800000 aligned reads...  thread 15
+#3 Molinfo processed 700000 aligned reads...  thread 27
+#3 Molinfo processed 800000 aligned reads...  thread 2
+#3 Molinfo processed 800000 aligned reads...  thread 12
+#3 Molinfo processed 700000 aligned reads...  thread 30
+#3 Molinfo processed 800000 aligned reads...  thread 14
+#3 Molinfo processed 800000 aligned reads...  thread 1
+#3 Molinfo processed 700000 aligned reads...  thread 19
+#3 Molinfo processed 800000 aligned reads...  thread 21
+#3 Molinfo processed 800000 aligned reads...  thread 6
+#3 Molinfo processed 700000 aligned reads...  thread 10
+#3 Molinfo processed 800000 aligned reads...  thread 16
+#3 Molinfo processed 700000 aligned reads...  thread 29
+#3 Molinfo processed 800000 aligned reads...  thread 13
+#3 Molinfo processed 900000 aligned reads...  thread 17
+#3 Molinfo processed 800000 aligned reads...  thread 20
+#3 Molinfo processed 700000 aligned reads...  thread 32
+#3 Molinfo processed 700000 aligned reads...  thread 8
+#3 Molinfo processed 800000 aligned reads...  thread 22
+#3 Molinfo processed 900000 aligned reads...  thread 4
+#3 Molinfo processed 700000 aligned reads...  thread 31
+#3 Molinfo processed 800000 aligned reads...  thread 24
+#3 Molinfo processed 800000 aligned reads...  thread 3
+#3 Molinfo processed 800000 aligned reads...  thread 7
+#3 Molinfo processed 900000 aligned reads...  thread 25
+#3 Molinfo processed 900000 aligned reads...  thread 18
+#3 Molinfo processed 800000 aligned reads...  thread 26
+#3 Molinfo processed 800000 aligned reads...  thread 23
+#3 Molinfo processed 700000 aligned reads...  thread 28
+#3 Molinfo processed 900000 aligned reads...  thread 12
+#3 Molinfo processed 800000 aligned reads...  thread 11
+#3 Molinfo processed 900000 aligned reads...  thread 15
+#3 Molinfo processed 1000000 aligned reads...  thread 5
+#3 Molinfo processed 800000 aligned reads...  thread 9
+#3 Molinfo processed 900000 aligned reads...  thread 1
+#3 Molinfo processed 900000 aligned reads...  thread 2
+#3 Molinfo processed 800000 aligned reads...  thread 27
+#3 Molinfo processed 900000 aligned reads...  thread 14
+#3 Molinfo processed 900000 aligned reads...  thread 21
+#3 Molinfo processed 800000 aligned reads...  thread 19
+#3 Molinfo processed 900000 aligned reads...  thread 6
+#3 Molinfo processed 900000 aligned reads...  thread 16
+#3 Molinfo processed 1000000 aligned reads...  thread 17
+#3 Molinfo processed 800000 aligned reads...  thread 10
+#3 Molinfo processed 800000 aligned reads...  thread 30
+#3 Molinfo processed 900000 aligned reads...  thread 20
+#3 Molinfo processed 1000000 aligned reads...  thread 4
+#3 Molinfo processed 900000 aligned reads...  thread 22
+#3 Molinfo processed 900000 aligned reads...  thread 24
+#3 Molinfo processed 800000 aligned reads...  thread 29
+#3 Molinfo processed 900000 aligned reads...  thread 13
+#3 Molinfo processed 800000 aligned reads...  thread 32
+#3 Molinfo processed 900000 aligned reads...  thread 3
+#3 Molinfo processed 1100000 aligned reads...  thread 5
+#3 Molinfo processed 800000 aligned reads...  thread 8
+#3 Molinfo processed 1000000 aligned reads...  thread 25
+#3 Molinfo processed 1000000 aligned reads...  thread 18
+#3 Molinfo processed 1000000 aligned reads...  thread 15
+#3 Molinfo processed 800000 aligned reads...  thread 31
+#3 Molinfo processed 900000 aligned reads...  thread 23
+#3 Molinfo processed 1000000 aligned reads...  thread 2
+#3 Molinfo processed 900000 aligned reads...  thread 26
+#3 Molinfo processed 900000 aligned reads...  thread 11
+#3 Molinfo processed 1000000 aligned reads...  thread 1
+#3 Molinfo processed 900000 aligned reads...  thread 7
+#3 Molinfo processed 1000000 aligned reads...  thread 12
+#3 Molinfo processed 800000 aligned reads...  thread 28
+#3 Molinfo processed 900000 aligned reads...  thread 9
+#3 Molinfo processed 1000000 aligned reads...  thread 6
+#3 Molinfo processed 1000000 aligned reads...  thread 14
+#3 Molinfo processed 1000000 aligned reads...  thread 16
+#3 Molinfo processed 1100000 aligned reads...  thread 17
+#3 Molinfo processed 900000 aligned reads...  thread 27
+#3 Molinfo processed 1000000 aligned reads...  thread 20
+#3 Molinfo processed 900000 aligned reads...  thread 19
+#3 Molinfo processed 1000000 aligned reads...  thread 21
+#3 Molinfo processed 1100000 aligned reads...  thread 4
+#3 Molinfo processed 900000 aligned reads...  thread 10
+#3 Molinfo processed 1000000 aligned reads...  thread 24
+#3 Molinfo processed 900000 aligned reads...  thread 30
+#3 Molinfo processed 1000000 aligned reads...  thread 3
+#3 Molinfo processed 1000000 aligned reads...  thread 13
+#3 Molinfo processed 1000000 aligned reads...  thread 22
+#3 Molinfo processed 1200000 aligned reads...  thread 5
+#3 Molinfo processed 1100000 aligned reads...  thread 2
+#3 Molinfo processed 900000 aligned reads...  thread 29
+#3 Molinfo processed 1100000 aligned reads...  thread 15
+#3 Molinfo processed 1100000 aligned reads...  thread 25
+#3 Molinfo processed 900000 aligned reads...  thread 32
+#3 Molinfo processed 1100000 aligned reads...  thread 18
+#3 Molinfo processed 1100000 aligned reads...  thread 1
+#3 Molinfo processed 1100000 aligned reads...  thread 12
+#3 Molinfo processed 1000000 aligned reads...  thread 23
+#3 Molinfo processed 1000000 aligned reads...  thread 7
+#3 Molinfo processed 900000 aligned reads...  thread 8
+#3 Molinfo processed 900000 aligned reads...  thread 28
+#3 Molinfo processed 1100000 aligned reads...  thread 16
+#3 Molinfo processed 1000000 aligned reads...  thread 11
+#3 Molinfo processed 1000000 aligned reads...  thread 26
+#3 Molinfo processed 900000 aligned reads...  thread 31
+#3 Molinfo processed 1200000 aligned reads...  thread 17
+#3 Molinfo processed 1000000 aligned reads...  thread 9
+#3 Molinfo processed 1100000 aligned reads...  thread 14
+#3 Molinfo processed 1100000 aligned reads...  thread 20
+#3 Molinfo processed 1200000 aligned reads...  thread 4
+#3 Molinfo processed 1100000 aligned reads...  thread 21
+#3 Molinfo processed 1000000 aligned reads...  thread 27
+#3 Molinfo processed 1100000 aligned reads...  thread 6
+#3 Molinfo processed 1100000 aligned reads...  thread 24
+#3 Molinfo processed 1000000 aligned reads...  thread 10
+#3 Molinfo processed 1300000 aligned reads...  thread 5
+#3 Molinfo processed 1000000 aligned reads...  thread 19
+#3 Molinfo processed 1100000 aligned reads...  thread 22
+#3 Molinfo processed 1100000 aligned reads...  thread 3
+#3 Molinfo processed 1100000 aligned reads...  thread 13
+#3 Molinfo processed 1000000 aligned reads...  thread 30
+#3 Molinfo processed 1200000 aligned reads...  thread 2
+#3 Molinfo processed 1200000 aligned reads...  thread 25
+#3 Molinfo processed 1200000 aligned reads...  thread 15
+#3 Molinfo processed 1200000 aligned reads...  thread 1
+#3 Molinfo processed 1000000 aligned reads...  thread 32
+#3 Molinfo processed 1100000 aligned reads...  thread 26
+#3 Molinfo processed 1000000 aligned reads...  thread 29
+#3 Molinfo processed 1100000 aligned reads...  thread 23
+#3 Molinfo processed 1200000 aligned reads...  thread 16
+#3 Molinfo processed 1200000 aligned reads...  thread 12
+#3 Molinfo processed 1300000 aligned reads...  thread 17
+#3 Molinfo processed 1100000 aligned reads...  thread 11
+#3 Molinfo processed 1100000 aligned reads...  thread 7
+#3 Molinfo processed 1200000 aligned reads...  thread 18
+#3 Molinfo processed 1200000 aligned reads...  thread 20
+#3 Molinfo processed 1000000 aligned reads...  thread 28
+#3 Molinfo processed 1200000 aligned reads...  thread 14
+#3 Molinfo processed 1300000 aligned reads...  thread 4
+#3 Molinfo processed 1000000 aligned reads...  thread 31
+#3 Molinfo processed 1100000 aligned reads...  thread 9
+#3 Molinfo processed 1200000 aligned reads...  thread 21
+#3 Molinfo processed 1200000 aligned reads...  thread 24
+#3 Molinfo processed 1000000 aligned reads...  thread 8
+#3 Molinfo processed 1200000 aligned reads...  thread 6
+#3 Molinfo processed 1400000 aligned reads...  thread 5
+#3 Molinfo processed 1100000 aligned reads...  thread 27
+#3 Molinfo processed 1200000 aligned reads...  thread 22
+#3 Molinfo processed 1200000 aligned reads...  thread 3
+#3 Molinfo processed 1300000 aligned reads...  thread 2
+#3 Molinfo processed 1300000 aligned reads...  thread 15
+#3 Molinfo processed 1100000 aligned reads...  thread 19
+#3 Molinfo processed 1200000 aligned reads...  thread 13
+#3 Molinfo processed 1300000 aligned reads...  thread 25
+#3 Molinfo processed 1300000 aligned reads...  thread 1
+#3 Molinfo processed 1100000 aligned reads...  thread 10
+#3 Molinfo processed 1100000 aligned reads...  thread 30
+#3 Molinfo processed 1400000 aligned reads...  thread 17
+#3 Molinfo processed 1200000 aligned reads...  thread 26
+#3 Molinfo processed 1200000 aligned reads...  thread 23
+#3 Molinfo processed 1100000 aligned reads...  thread 32
+#3 Molinfo processed 1400000 aligned reads...  thread 4
+#3 Molinfo processed 1300000 aligned reads...  thread 12
+#3 Molinfo processed 1200000 aligned reads...  thread 11
+#3 Molinfo processed 1300000 aligned reads...  thread 16
+#3 Molinfo processed 1100000 aligned reads...  thread 29
+#3 Molinfo processed 1300000 aligned reads...  thread 20
+#3 Molinfo processed 1300000 aligned reads...  thread 14
+#3 Molinfo processed 1200000 aligned reads...  thread 7
+#3 Molinfo processed 1300000 aligned reads...  thread 18
+#3 Molinfo processed 1200000 aligned reads...  thread 9
+#3 Molinfo processed 1100000 aligned reads...  thread 28
+#3 Molinfo processed 1300000 aligned reads...  thread 24
+#3 Molinfo processed 1300000 aligned reads...  thread 21
+#3 Molinfo processed 1100000 aligned reads...  thread 31
+#3 Molinfo processed 1300000 aligned reads...  thread 6
+#3 Molinfo processed 1500000 aligned reads...  thread 5
+#3 Molinfo processed 1300000 aligned reads...  thread 22
+#3 Molinfo processed 1100000 aligned reads...  thread 8
+#3 Molinfo processed 1400000 aligned reads...  thread 15
+#3 Molinfo processed 1300000 aligned reads...  thread 3
+#3 Molinfo processed 1400000 aligned reads...  thread 2
+#3 Molinfo processed 1400000 aligned reads...  thread 1
+#3 Molinfo processed 1400000 aligned reads...  thread 25
+#3 Molinfo processed 1300000 aligned reads...  thread 13
+#3 Molinfo processed 1200000 aligned reads...  thread 27
+#3 Molinfo processed 1200000 aligned reads...  thread 19
+#3 Molinfo processed 1200000 aligned reads...  thread 10
+#3 Molinfo processed 1500000 aligned reads...  thread 17
+#3 Molinfo processed 1300000 aligned reads...  thread 23
+#3 Molinfo processed 1500000 aligned reads...  thread 4
+#3 Molinfo processed 1400000 aligned reads...  thread 16
+#3 Molinfo processed 1400000 aligned reads...  thread 12
+#3 Molinfo processed 1300000 aligned reads...  thread 26
+#3 Molinfo processed 1200000 aligned reads...  thread 30
+#3 Molinfo processed 1300000 aligned reads...  thread 9
+#3 Molinfo processed 1400000 aligned reads...  thread 20
+#3 Molinfo processed 1400000 aligned reads...  thread 24
+#3 Molinfo processed 1400000 aligned reads...  thread 14
+#3 Molinfo processed 1300000 aligned reads...  thread 11
+#3 Molinfo processed 1300000 aligned reads...  thread 7
+#3 Molinfo processed 1400000 aligned reads...  thread 18
+#3 Molinfo processed 1200000 aligned reads...  thread 29
+#3 Molinfo processed 1200000 aligned reads...  thread 32
+#3 Molinfo processed 1600000 aligned reads...  thread 5
+#3 Molinfo processed 1400000 aligned reads...  thread 21
+#3 Molinfo processed 1200000 aligned reads...  thread 28
+#3 Molinfo processed 1400000 aligned reads...  thread 22
+#3 Molinfo processed 1400000 aligned reads...  thread 3
+#3 Molinfo processed 1500000 aligned reads...  thread 2
+#3 Molinfo processed 1500000 aligned reads...  thread 15
+#3 Molinfo processed 1400000 aligned reads...  thread 6
+#3 Molinfo processed 1200000 aligned reads...  thread 31
+#3 Molinfo processed 1500000 aligned reads...  thread 1
+#3 Molinfo processed 1500000 aligned reads...  thread 25
+#3 Molinfo processed 1400000 aligned reads...  thread 13
+#3 Molinfo processed 1300000 aligned reads...  thread 27
+#3 Molinfo processed 1400000 aligned reads...  thread 23
+#3 Molinfo processed 1600000 aligned reads...  thread 17
+#3 Molinfo processed 1600000 aligned reads...  thread 4
+#3 Molinfo processed 1500000 aligned reads...  thread 16
+#3 Molinfo processed 1200000 aligned reads...  thread 8
+#3 Molinfo processed 1300000 aligned reads...  thread 10
+#3 Molinfo processed 1300000 aligned reads...  thread 19
+#3 Molinfo processed 1500000 aligned reads...  thread 14
+#3 Molinfo processed 1400000 aligned reads...  thread 26
+#3 Molinfo processed 1500000 aligned reads...  thread 20
+#3 Molinfo processed 1500000 aligned reads...  thread 24
+#3 Molinfo processed 1300000 aligned reads...  thread 30
+#3 Molinfo processed 1400000 aligned reads...  thread 9
+#3 Molinfo processed 1500000 aligned reads...  thread 12
+#3 Molinfo processed 1300000 aligned reads...  thread 29
+#3 Molinfo processed 1400000 aligned reads...  thread 11
+#3 Molinfo processed 1700000 aligned reads...  thread 5
+#3 Molinfo processed 1400000 aligned reads...  thread 7
+#3 Molinfo processed 1500000 aligned reads...  thread 18
+#3 Molinfo processed 1600000 aligned reads...  thread 2
+#3 Molinfo processed 1500000 aligned reads...  thread 3
+#3 Molinfo processed 1300000 aligned reads...  thread 32
+#3 Molinfo processed 1500000 aligned reads...  thread 22
+#3 Molinfo processed 1300000 aligned reads...  thread 28
+#3 Molinfo processed 1500000 aligned reads...  thread 21
+#3 Molinfo processed 1600000 aligned reads...  thread 1
+#3 Molinfo processed 1500000 aligned reads...  thread 6
+#3 Molinfo processed 1600000 aligned reads...  thread 15
+#3 Molinfo processed 1600000 aligned reads...  thread 25
+#3 Molinfo processed 1500000 aligned reads...  thread 23
+#3 Molinfo processed 1600000 aligned reads...  thread 16
+#3 Molinfo processed 1700000 aligned reads...  thread 4
+#3 Molinfo processed 1500000 aligned reads...  thread 13
+#3 Molinfo processed 1700000 aligned reads...  thread 17
+#3 Molinfo processed 1600000 aligned reads...  thread 14
+#3 Molinfo processed 1400000 aligned reads...  thread 27
+#3 Molinfo processed 1400000 aligned reads...  thread 10
+#3 Molinfo processed 1300000 aligned reads...  thread 31
+#3 Molinfo processed 1600000 aligned reads...  thread 24
+#3 Molinfo processed 1400000 aligned reads...  thread 19
+#3 Molinfo processed 1600000 aligned reads...  thread 20
+#3 Molinfo processed 1500000 aligned reads...  thread 9
+#3 Molinfo processed 1500000 aligned reads...  thread 7
+#3 Molinfo processed 1400000 aligned reads...  thread 30
+#3 Molinfo processed 1800000 aligned reads...  thread 5
+#3 Molinfo processed 1300000 aligned reads...  thread 8
+#3 Molinfo processed 1600000 aligned reads...  thread 12
+#3 Molinfo processed 1500000 aligned reads...  thread 11
+#3 Molinfo processed 1700000 aligned reads...  thread 2
+#3 Molinfo processed 1600000 aligned reads...  thread 3
+#3 Molinfo processed 1700000 aligned reads...  thread 1
+#3 Molinfo processed 1500000 aligned reads...  thread 26
+#3 Molinfo processed 1400000 aligned reads...  thread 29
+#3 Molinfo processed 1600000 aligned reads...  thread 18
+#3 Molinfo processed 1400000 aligned reads...  thread 32
+#3 Molinfo processed 1600000 aligned reads...  thread 6
+#3 Molinfo processed 1600000 aligned reads...  thread 22
+#3 Molinfo processed 1600000 aligned reads...  thread 21
+#3 Molinfo processed 1400000 aligned reads...  thread 28
+#3 Molinfo processed 1700000 aligned reads...  thread 15
+#3 Molinfo processed 1700000 aligned reads...  thread 25
+#3 Molinfo processed 1800000 aligned reads...  thread 4
+#3 Molinfo processed 1700000 aligned reads...  thread 16
+#3 Molinfo processed 1600000 aligned reads...  thread 23
+#3 Molinfo processed 1600000 aligned reads...  thread 13
+#3 Molinfo processed 1800000 aligned reads...  thread 17
+#3 Molinfo processed 1700000 aligned reads...  thread 14
+#3 Molinfo processed 1700000 aligned reads...  thread 24
+#3 Molinfo processed 1500000 aligned reads...  thread 27
+#3 Molinfo processed 1500000 aligned reads...  thread 10
+#3 Molinfo processed 1600000 aligned reads...  thread 9
+#3 Molinfo processed 1600000 aligned reads...  thread 7
+#3 Molinfo processed 1700000 aligned reads...  thread 20
+#3 Molinfo processed 1900000 aligned reads...  thread 5
+#3 Molinfo processed 1700000 aligned reads...  thread 3
+#3 Molinfo processed 1400000 aligned reads...  thread 31
+#3 Molinfo processed 1500000 aligned reads...  thread 19
+#3 Molinfo processed 1600000 aligned reads...  thread 11
+#3 Molinfo processed 1800000 aligned reads...  thread 1
+#3 Molinfo processed 1800000 aligned reads...  thread 2
+#3 Molinfo processed 1700000 aligned reads...  thread 12
+#3 Molinfo processed 1500000 aligned reads...  thread 30
+#3 Molinfo processed 1400000 aligned reads...  thread 8
+#3 Molinfo processed 1700000 aligned reads...  thread 21
+#3 Molinfo processed 1600000 aligned reads...  thread 26
+#3 Molinfo processed 1700000 aligned reads...  thread 22
+#3 Molinfo processed 1900000 aligned reads...  thread 4
+#3 Molinfo processed 1700000 aligned reads...  thread 18
+#3 Molinfo processed 1800000 aligned reads...  thread 15
+#3 Molinfo processed 1800000 aligned reads...  thread 16
+#3 Molinfo processed 1800000 aligned reads...  thread 25
+#3 Molinfo processed 1500000 aligned reads...  thread 28
+#3 Molinfo processed 1500000 aligned reads...  thread 29
+#3 Molinfo processed 1700000 aligned reads...  thread 6
+#3 Molinfo processed 1700000 aligned reads...  thread 23
+#3 Molinfo processed 1500000 aligned reads...  thread 32
+#3 Molinfo processed 1900000 aligned reads...  thread 17
+#3 Molinfo processed 1700000 aligned reads...  thread 13
+#3 Molinfo processed 1800000 aligned reads...  thread 24
+#3 Molinfo processed 1800000 aligned reads...  thread 14
+#3 Molinfo processed 1600000 aligned reads...  thread 27
+#3 Molinfo processed 1700000 aligned reads...  thread 7
+#3 Molinfo processed 2000000 aligned reads...  thread 5
+#3 Molinfo processed 1700000 aligned reads...  thread 9
+#3 Molinfo processed 1600000 aligned reads...  thread 10
+#3 Molinfo processed 1800000 aligned reads...  thread 20
+#3 Molinfo processed 1800000 aligned reads...  thread 3
+#3 Molinfo processed 1900000 aligned reads...  thread 1
+#3 Molinfo processed 1800000 aligned reads...  thread 21
+#3 Molinfo processed 1900000 aligned reads...  thread 2
+#3 Molinfo processed 1800000 aligned reads...  thread 12
+#3 Molinfo processed 1500000 aligned reads...  thread 31
+#3 Molinfo processed 2000000 aligned reads...  thread 4
+#3 Molinfo processed 1700000 aligned reads...  thread 11
+#3 Molinfo processed 1800000 aligned reads...  thread 22
+#3 Molinfo processed 1900000 aligned reads...  thread 16
+#3 Molinfo processed 1600000 aligned reads...  thread 19
+#3 Molinfo processed 1900000 aligned reads...  thread 25
+#3 Molinfo processed 1700000 aligned reads...  thread 26
+#3 Molinfo processed 1900000 aligned reads...  thread 15
+#3 Molinfo processed 1600000 aligned reads...  thread 30
+#3 Molinfo processed 1800000 aligned reads...  thread 23
+#3 Molinfo processed 1500000 aligned reads...  thread 8
+#3 Molinfo processed 1800000 aligned reads...  thread 18
+#3 Molinfo processed 1600000 aligned reads...  thread 28
+#3 Molinfo processed 1800000 aligned reads...  thread 6
+#3 Molinfo processed 1600000 aligned reads...  thread 29
+#3 Molinfo processed 2000000 aligned reads...  thread 17
+#3 Molinfo processed 1800000 aligned reads...  thread 13
+#3 Molinfo processed 1900000 aligned reads...  thread 24
+#3 Molinfo processed 1600000 aligned reads...  thread 32
+#3 Molinfo processed 2100000 aligned reads...  thread 5
+#3 Molinfo processed 1900000 aligned reads...  thread 3
+#3 Molinfo processed 1900000 aligned reads...  thread 14
+#3 Molinfo processed 1800000 aligned reads...  thread 7
+#3 Molinfo processed 2000000 aligned reads...  thread 1
+#3 Molinfo processed 1700000 aligned reads...  thread 27
+#3 Molinfo processed 1800000 aligned reads...  thread 9
+#3 Molinfo processed 1900000 aligned reads...  thread 20
+#3 Molinfo processed 2000000 aligned reads...  thread 2
+#3 Molinfo processed 1700000 aligned reads...  thread 10
+#3 Molinfo processed 2100000 aligned reads...  thread 4
+#3 Molinfo processed 2000000 aligned reads...  thread 16
+#3 Molinfo processed 1900000 aligned reads...  thread 21
+#3 Molinfo processed 1900000 aligned reads...  thread 12
+#3 Molinfo processed 2000000 aligned reads...  thread 15
+#3 Molinfo processed 2000000 aligned reads...  thread 25
+#3 Molinfo processed 1900000 aligned reads...  thread 23
+#3 Molinfo processed 1600000 aligned reads...  thread 31
+#3 Molinfo processed 1900000 aligned reads...  thread 22
+#3 Molinfo processed 1800000 aligned reads...  thread 11
+#3 Molinfo processed 1700000 aligned reads...  thread 19
+#3 Molinfo processed 2100000 aligned reads...  thread 17
+#3 Molinfo processed 1800000 aligned reads...  thread 26
+#3 Molinfo processed 1700000 aligned reads...  thread 30
+#3 Molinfo processed 1700000 aligned reads...  thread 28
+#3 Molinfo processed 2000000 aligned reads...  thread 24
+#3 Molinfo processed 1900000 aligned reads...  thread 6
+#3 Molinfo processed 1900000 aligned reads...  thread 13
+#3 Molinfo processed 1900000 aligned reads...  thread 18
+#3 Molinfo processed 2000000 aligned reads...  thread 14
+#3 Molinfo processed 2200000 aligned reads...  thread 5
+#3 Molinfo processed 2000000 aligned reads...  thread 3
+#3 Molinfo processed 1700000 aligned reads...  thread 29
+#3 Molinfo processed 2100000 aligned reads...  thread 1
+#3 Molinfo processed 1600000 aligned reads...  thread 8
+#3 Molinfo processed 1700000 aligned reads...  thread 32
+#3 Molinfo processed 2100000 aligned reads...  thread 16
+#3 Molinfo processed 2100000 aligned reads...  thread 2
+#3 Molinfo processed 1900000 aligned reads...  thread 9
+#3 Molinfo processed 1900000 aligned reads...  thread 7
+#3 Molinfo processed 2000000 aligned reads...  thread 20
+#3 Molinfo processed 2200000 aligned reads...  thread 4
+#3 Molinfo processed 2000000 aligned reads...  thread 12
+#3 Molinfo processed 1800000 aligned reads...  thread 10
+#3 Molinfo processed 1800000 aligned reads...  thread 27
+#3 Molinfo processed 2200000 aligned reads...  thread 17
+#3 Molinfo processed 2000000 aligned reads...  thread 22
+#3 Molinfo processed 2100000 aligned reads...  thread 15
+#3 Molinfo processed 2000000 aligned reads...  thread 23
+#3 Molinfo processed 2100000 aligned reads...  thread 25
+#3 Molinfo processed 2000000 aligned reads...  thread 21
+#3 Molinfo processed 2100000 aligned reads...  thread 24
+#3 Molinfo processed 1900000 aligned reads...  thread 26
+#3 Molinfo processed 1800000 aligned reads...  thread 30
+#3 Molinfo processed 1800000 aligned reads...  thread 19
+#3 Molinfo processed 1800000 aligned reads...  thread 28
+#3 Molinfo processed 2000000 aligned reads...  thread 6
+#3 Molinfo processed 1900000 aligned reads...  thread 11
+#3 Molinfo processed 1700000 aligned reads...  thread 31
+#3 Molinfo processed 2000000 aligned reads...  thread 13
+#3 Molinfo processed 2100000 aligned reads...  thread 3
+#3 Molinfo processed 2300000 aligned reads...  thread 5
+#3 Molinfo processed 2000000 aligned reads...  thread 18
+#3 Molinfo processed 2100000 aligned reads...  thread 14
+#3 Molinfo processed 2200000 aligned reads...  thread 16
+#3 Molinfo processed 2200000 aligned reads...  thread 1
+#3 Molinfo processed 2000000 aligned reads...  thread 9
+#3 Molinfo processed 1800000 aligned reads...  thread 29
+#3 Molinfo processed 2200000 aligned reads...  thread 2
+#3 Molinfo processed 2300000 aligned reads...  thread 4
+#3 Molinfo processed 2100000 aligned reads...  thread 20
+#3 Molinfo processed 2000000 aligned reads...  thread 7
+#3 Molinfo processed 1900000 aligned reads...  thread 10
+#3 Molinfo processed 2100000 aligned reads...  thread 12
+#3 Molinfo processed 1900000 aligned reads...  thread 27
+#3 Molinfo processed 2200000 aligned reads...  thread 25
+#3 Molinfo processed 2200000 aligned reads...  thread 15
+#3 Molinfo processed 2300000 aligned reads...  thread 17
+#3 Molinfo processed 2100000 aligned reads...  thread 23
+#3 Molinfo processed 1800000 aligned reads...  thread 32
+#3 Molinfo processed 2200000 aligned reads...  thread 24
+#3 Molinfo processed 2100000 aligned reads...  thread 22
+#3 Molinfo processed 2100000 aligned reads...  thread 21
+#3 Molinfo processed 1700000 aligned reads...  thread 8
+#3 Molinfo processed 2200000 aligned reads...  thread 3
+#3 Molinfo processed 2000000 aligned reads...  thread 26
+#3 Molinfo processed 1900000 aligned reads...  thread 30
+#3 Molinfo processed 2100000 aligned reads...  thread 6
+#3 Molinfo processed 1900000 aligned reads...  thread 28
+#3 Molinfo processed 2100000 aligned reads...  thread 13
+#3 Molinfo processed 2000000 aligned reads...  thread 11
+#3 Molinfo processed 2200000 aligned reads...  thread 14
+#3 Molinfo processed 2400000 aligned reads...  thread 5
+#3 Molinfo processed 2300000 aligned reads...  thread 16
+#3 Molinfo processed 2300000 aligned reads...  thread 1
+#3 Molinfo processed 1800000 aligned reads...  thread 31
+#3 Molinfo processed 1900000 aligned reads...  thread 19
+#3 Molinfo processed 2100000 aligned reads...  thread 18
+#3 Molinfo processed 2400000 aligned reads...  thread 4
+#3 Molinfo processed 2100000 aligned reads...  thread 9
+#3 Molinfo processed 2300000 aligned reads...  thread 2
+#3 Molinfo processed 1900000 aligned reads...  thread 29
+#3 Molinfo processed 2300000 aligned reads...  thread 25
+#3 Molinfo processed 2200000 aligned reads...  thread 12
+#3 Molinfo processed 2200000 aligned reads...  thread 20
+#3 Molinfo processed 2000000 aligned reads...  thread 10
+#3 Molinfo processed 2000000 aligned reads...  thread 27
+#3 Molinfo processed 2200000 aligned reads...  thread 23
+#3 Molinfo processed 2300000 aligned reads...  thread 15
+#3 Molinfo processed 2100000 aligned reads...  thread 7
+#3 Molinfo processed 2400000 aligned reads...  thread 17
+#3 Molinfo processed 2200000 aligned reads...  thread 22
+#3 Molinfo processed 2300000 aligned reads...  thread 24
+#3 Molinfo processed 2200000 aligned reads...  thread 21
+#3 Molinfo processed 2100000 aligned reads...  thread 26
+#3 Molinfo processed 2300000 aligned reads...  thread 3
+#3 Molinfo processed 2400000 aligned reads...  thread 16
+#3 Molinfo processed 1900000 aligned reads...  thread 32
+#3 Molinfo processed 2200000 aligned reads...  thread 6
+#3 Molinfo processed 2500000 aligned reads...  thread 5
+#3 Molinfo processed 2100000 aligned reads...  thread 11
+#3 Molinfo processed 2000000 aligned reads...  thread 30
+#3 Molinfo processed 2200000 aligned reads...  thread 13
+#3 Molinfo processed 2400000 aligned reads...  thread 1
+#3 Molinfo processed 2000000 aligned reads...  thread 28
+#3 Molinfo processed 1800000 aligned reads...  thread 8
+#3 Molinfo processed 2300000 aligned reads...  thread 14
+#3 Molinfo processed 2500000 aligned reads...  thread 4
+#3 Molinfo processed 2200000 aligned reads...  thread 18
+#3 Molinfo processed 2200000 aligned reads...  thread 9
+#3 Molinfo processed 2000000 aligned reads...  thread 19
+#3 Molinfo processed 2400000 aligned reads...  thread 2
+#3 Molinfo processed 2400000 aligned reads...  thread 25
+#3 Molinfo processed 1900000 aligned reads...  thread 31
+#3 Molinfo processed 2100000 aligned reads...  thread 10
+#3 Molinfo processed 2400000 aligned reads...  thread 24
+#3 Molinfo processed 2000000 aligned reads...  thread 29
+#3 Molinfo processed 2300000 aligned reads...  thread 12
+#3 Molinfo processed 2300000 aligned reads...  thread 20
+#3 Molinfo processed 2300000 aligned reads...  thread 23
+#3 Molinfo processed 2500000 aligned reads...  thread 17
+#3 Molinfo processed 2400000 aligned reads...  thread 15
+#3 Molinfo processed 2300000 aligned reads...  thread 22
+#3 Molinfo processed 2100000 aligned reads...  thread 27
+#3 Molinfo processed 2300000 aligned reads...  thread 21
+#3 Molinfo processed 2200000 aligned reads...  thread 7
+#3 Molinfo processed 2400000 aligned reads...  thread 3
+#3 Molinfo processed 2600000 aligned reads...  thread 5
+#3 Molinfo processed 2100000 aligned reads...  thread 28
+#3 Molinfo processed 2300000 aligned reads...  thread 13
+#3 Molinfo processed 2200000 aligned reads...  thread 26
+#3 Molinfo processed 2500000 aligned reads...  thread 16
+#3 Molinfo processed 2600000 aligned reads...  thread 4
+#3 Molinfo processed 2200000 aligned reads...  thread 11
+#3 Molinfo processed 2300000 aligned reads...  thread 6
+#3 Molinfo processed 2400000 aligned reads...  thread 14
+#3 Molinfo processed 2500000 aligned reads...  thread 1
+#3 Molinfo processed 2000000 aligned reads...  thread 32
+#3 Molinfo processed 2100000 aligned reads...  thread 30
+#3 Molinfo processed 1900000 aligned reads...  thread 8
+#3 Molinfo processed 2300000 aligned reads...  thread 18
+#3 Molinfo processed 2500000 aligned reads...  thread 25
+#3 Molinfo processed 2500000 aligned reads...  thread 2
+#3 Molinfo processed 2300000 aligned reads...  thread 9
+#3 Molinfo processed 2500000 aligned reads...  thread 15
+#3 Molinfo processed 2000000 aligned reads...  thread 31
+#3 Molinfo processed 2400000 aligned reads...  thread 23
+#3 Molinfo processed 2600000 aligned reads...  thread 17
+#3 Molinfo processed 2200000 aligned reads...  thread 10
+#3 Molinfo processed 2400000 aligned reads...  thread 20
+#3 Molinfo processed 2400000 aligned reads...  thread 12
+#3 Molinfo processed 2500000 aligned reads...  thread 24
+#3 Molinfo processed 2100000 aligned reads...  thread 29
+#3 Molinfo processed 2400000 aligned reads...  thread 22
+#3 Molinfo processed 2500000 aligned reads...  thread 3
+#3 Molinfo processed 2100000 aligned reads...  thread 19
+#3 Molinfo processed 2400000 aligned reads...  thread 21
+#3 Molinfo processed 2700000 aligned reads...  thread 5
+#3 Molinfo processed 2200000 aligned reads...  thread 28
+#3 Molinfo processed 2600000 aligned reads...  thread 16
+#3 Molinfo processed 2300000 aligned reads...  thread 7
+#3 Molinfo processed 2200000 aligned reads...  thread 27
+#3 Molinfo processed 2700000 aligned reads...  thread 4
+#3 Molinfo processed 2400000 aligned reads...  thread 13
+#3 Molinfo processed 2500000 aligned reads...  thread 14
+#3 Molinfo processed 2600000 aligned reads...  thread 1
+#3 Molinfo processed 2300000 aligned reads...  thread 26
+#3 Molinfo processed 2300000 aligned reads...  thread 11
+#3 Molinfo processed 2000000 aligned reads...  thread 8
+#3 Molinfo processed 2100000 aligned reads...  thread 32
+#3 Molinfo processed 2400000 aligned reads...  thread 6
+#3 Molinfo processed 2400000 aligned reads...  thread 18
+#3 Molinfo processed 2600000 aligned reads...  thread 2
+#3 Molinfo processed 2600000 aligned reads...  thread 25
+#3 Molinfo processed 2500000 aligned reads...  thread 20
+#3 Molinfo processed 2200000 aligned reads...  thread 30
+#3 Molinfo processed 2500000 aligned reads...  thread 23
+#3 Molinfo processed 2600000 aligned reads...  thread 15
+#3 Molinfo processed 2100000 aligned reads...  thread 31
+#3 Molinfo processed 2700000 aligned reads...  thread 17
+#3 Molinfo processed 2600000 aligned reads...  thread 3
+#3 Molinfo processed 2400000 aligned reads...  thread 9
+#3 Molinfo processed 2600000 aligned reads...  thread 24
+#3 Molinfo processed 2800000 aligned reads...  thread 5
+#3 Molinfo processed 2300000 aligned reads...  thread 10
+#3 Molinfo processed 2500000 aligned reads...  thread 22
+#3 Molinfo processed 2500000 aligned reads...  thread 12
+#3 Molinfo processed 2300000 aligned reads...  thread 28
+#3 Molinfo processed 2500000 aligned reads...  thread 21
+#3 Molinfo processed 2800000 aligned reads...  thread 4
+#3 Molinfo processed 2700000 aligned reads...  thread 16
+#3 Molinfo processed 2200000 aligned reads...  thread 29
+#3 Molinfo processed 2600000 aligned reads...  thread 14
+#3 Molinfo processed 2200000 aligned reads...  thread 19
+#3 Molinfo processed 2700000 aligned reads...  thread 1
+#3 Molinfo processed 2300000 aligned reads...  thread 27
+#3 Molinfo processed 2500000 aligned reads...  thread 13
+#3 Molinfo processed 2400000 aligned reads...  thread 11
+#3 Molinfo processed 2400000 aligned reads...  thread 26
+#3 Molinfo processed 2100000 aligned reads...  thread 8
+#3 Molinfo processed 2400000 aligned reads...  thread 7
+#3 Molinfo processed 2700000 aligned reads...  thread 2
+#3 Molinfo processed 2600000 aligned reads...  thread 20
+#3 Molinfo processed 2500000 aligned reads...  thread 6
+#3 Molinfo processed 2700000 aligned reads...  thread 25
+#3 Molinfo processed 2600000 aligned reads...  thread 23
+#3 Molinfo processed 2700000 aligned reads...  thread 15
+#3 Molinfo processed 2200000 aligned reads...  thread 32
+#3 Molinfo processed 2700000 aligned reads...  thread 24
+#3 Molinfo processed 2500000 aligned reads...  thread 18
+#3 Molinfo processed 2700000 aligned reads...  thread 3
+#3 Molinfo processed 2800000 aligned reads...  thread 17
+#3 Molinfo processed 2900000 aligned reads...  thread 5
+#3 Molinfo processed 2800000 aligned reads...  thread 16
+#3 Molinfo processed 2200000 aligned reads...  thread 31
+#3 Molinfo processed 2600000 aligned reads...  thread 12
+#3 Molinfo processed 2900000 aligned reads...  thread 4
+#3 Molinfo processed 2300000 aligned reads...  thread 30
+#3 Molinfo processed 2500000 aligned reads...  thread 9
+#3 Molinfo processed 2400000 aligned reads...  thread 10
+#3 Molinfo processed 2600000 aligned reads...  thread 22
+#3 Molinfo processed 2400000 aligned reads...  thread 28
+#3 Molinfo processed 2600000 aligned reads...  thread 21
+#3 Molinfo processed 2800000 aligned reads...  thread 1
+#3 Molinfo processed 2500000 aligned reads...  thread 11
+#3 Molinfo processed 2700000 aligned reads...  thread 14
+#3 Molinfo processed 2300000 aligned reads...  thread 19
+#3 Molinfo processed 2300000 aligned reads...  thread 29
+#3 Molinfo processed 2400000 aligned reads...  thread 27
+#3 Molinfo processed 2200000 aligned reads...  thread 8
+#3 Molinfo processed 2600000 aligned reads...  thread 13
+#3 Molinfo processed 2500000 aligned reads...  thread 26
+#3 Molinfo processed 2700000 aligned reads...  thread 20
+#3 Molinfo processed 2800000 aligned reads...  thread 24
+#3 Molinfo processed 2700000 aligned reads...  thread 23
+#3 Molinfo processed 2800000 aligned reads...  thread 2
+#3 Molinfo processed 2800000 aligned reads...  thread 25
+#3 Molinfo processed 2800000 aligned reads...  thread 3
+#3 Molinfo processed 2500000 aligned reads...  thread 7
+#3 Molinfo processed 2800000 aligned reads...  thread 15
+#3 Molinfo processed 2600000 aligned reads...  thread 6
+#3 Molinfo processed 3000000 aligned reads...  thread 5
+#3 Molinfo processed 2300000 aligned reads...  thread 32
+#3 Molinfo processed 2900000 aligned reads...  thread 17
+#3 Molinfo processed 2700000 aligned reads...  thread 12
+#3 Molinfo processed 2900000 aligned reads...  thread 16
+#3 Molinfo processed 2600000 aligned reads...  thread 9
+#3 Molinfo processed 2600000 aligned reads...  thread 18
+#3 Molinfo processed 3000000 aligned reads...  thread 4
+#3 Molinfo processed 2700000 aligned reads...  thread 22
+#3 Molinfo processed 2300000 aligned reads...  thread 31
+#3 Molinfo processed 2500000 aligned reads...  thread 10
+#3 Molinfo processed 2900000 aligned reads...  thread 1
+#3 Molinfo processed 2800000 aligned reads...  thread 14
+#3 Molinfo processed 2500000 aligned reads...  thread 28
+#3 Molinfo processed 2400000 aligned reads...  thread 30
+#3 Molinfo processed 2600000 aligned reads...  thread 11
+#3 Molinfo processed 2700000 aligned reads...  thread 21
+#3 Molinfo processed 2700000 aligned reads...  thread 13
+#3 Molinfo processed 2900000 aligned reads...  thread 24
+#3 Molinfo processed 2400000 aligned reads...  thread 29
+#3 Molinfo processed 2400000 aligned reads...  thread 19
+#3 Molinfo processed 2900000 aligned reads...  thread 2
+#3 Molinfo processed 2300000 aligned reads...  thread 8
+#3 Molinfo processed 2900000 aligned reads...  thread 3
+#3 Molinfo processed 2800000 aligned reads...  thread 20
+#3 Molinfo processed 3100000 aligned reads...  thread 5
+#3 Molinfo processed 2800000 aligned reads...  thread 23
+#3 Molinfo processed 2600000 aligned reads...  thread 26
+#3 Molinfo processed 2900000 aligned reads...  thread 15
+#3 Molinfo processed 3100000 aligned reads...  thread 4
+#3 Molinfo processed 3000000 aligned reads...  thread 16
+#3 Molinfo processed 2500000 aligned reads...  thread 27
+#3 Molinfo processed 2700000 aligned reads...  thread 6
+#3 Molinfo processed 3000000 aligned reads...  thread 17
+#3 Molinfo processed 2600000 aligned reads...  thread 7
+#3 Molinfo processed 2900000 aligned reads...  thread 25
+#3 Molinfo processed 2800000 aligned reads...  thread 12
+#3 Molinfo processed 2400000 aligned reads...  thread 32
+#3 Molinfo processed 2700000 aligned reads...  thread 9
+#3 Molinfo processed 3000000 aligned reads...  thread 1
+#3 Molinfo processed 2600000 aligned reads...  thread 10
+#3 Molinfo processed 2400000 aligned reads...  thread 31
+#3 Molinfo processed 2800000 aligned reads...  thread 22
+#3 Molinfo processed 2700000 aligned reads...  thread 18
+#3 Molinfo processed 2600000 aligned reads...  thread 28
+#3 Molinfo processed 2900000 aligned reads...  thread 14
+#3 Molinfo processed 2700000 aligned reads...  thread 11
+#3 Molinfo processed 2500000 aligned reads...  thread 30
+#3 Molinfo processed 2800000 aligned reads...  thread 13
+#3 Molinfo processed 2800000 aligned reads...  thread 21
+#3 Molinfo processed 3000000 aligned reads...  thread 3
+#3 Molinfo processed 3000000 aligned reads...  thread 24
+#3 Molinfo processed 2900000 aligned reads...  thread 23
+#3 Molinfo processed 2900000 aligned reads...  thread 20
+#3 Molinfo processed 3000000 aligned reads...  thread 2
+#3 Molinfo processed 2400000 aligned reads...  thread 8
+#3 Molinfo processed 3000000 aligned reads...  thread 15
+#3 Molinfo processed 2700000 aligned reads...  thread 26
+#3 Molinfo processed 2500000 aligned reads...  thread 19
+#3 Molinfo processed 2500000 aligned reads...  thread 29
+#3 Molinfo processed 3100000 aligned reads...  thread 16
+#3 Molinfo processed 2800000 aligned reads...  thread 6
+#3 Molinfo processed 3100000 aligned reads...  thread 17
+#3 Molinfo processed 2700000 aligned reads...  thread 7
+#3 Molinfo processed 2900000 aligned reads...  thread 12
+#3 Molinfo processed 3000000 aligned reads...  thread 25
+#3 Molinfo processed 2600000 aligned reads...  thread 27
+#3 Molinfo processed 3100000 aligned reads...  thread 1
+#3 Molinfo processed 2800000 aligned reads...  thread 9
+#3 Molinfo processed 2500000 aligned reads...  thread 31
+#3 Molinfo processed 2500000 aligned reads...  thread 32
+#3 Molinfo processed 2700000 aligned reads...  thread 10
+#3 Molinfo processed 2900000 aligned reads...  thread 22
+#3 Molinfo processed 2700000 aligned reads...  thread 28
+#3 Molinfo processed 2800000 aligned reads...  thread 18
+#3 Molinfo processed 3100000 aligned reads...  thread 3
+#3 Molinfo processed 3000000 aligned reads...  thread 14
+#3 Molinfo processed 2800000 aligned reads...  thread 11
+#3 Molinfo processed 2900000 aligned reads...  thread 13
+#3 Molinfo processed 3100000 aligned reads...  thread 24
+#3 Molinfo processed 3000000 aligned reads...  thread 23
+#3 Molinfo processed 2900000 aligned reads...  thread 21
+#3 Molinfo processed 2500000 aligned reads...  thread 8
+#3 Molinfo processed 3100000 aligned reads...  thread 2
+#3 Molinfo processed 3100000 aligned reads...  thread 15
+#3 Molinfo processed 3000000 aligned reads...  thread 20
+#3 Molinfo processed 2600000 aligned reads...  thread 30
+#3 Molinfo processed 2800000 aligned reads...  thread 26
+#3 Molinfo processed 3000000 aligned reads...  thread 12
+#3 Molinfo processed 2900000 aligned reads...  thread 6
+#3 Molinfo processed 2600000 aligned reads...  thread 29
+#3 Molinfo processed 2600000 aligned reads...  thread 19
+#3 Molinfo processed 3100000 aligned reads...  thread 25
+#3 Molinfo processed 2800000 aligned reads...  thread 7
+#3 Molinfo processed 2900000 aligned reads...  thread 9
+#3 Molinfo processed 3000000 aligned reads...  thread 22
+#3 Molinfo processed 2700000 aligned reads...  thread 27
+#3 Molinfo processed 2800000 aligned reads...  thread 10
+#3 Molinfo processed 2600000 aligned reads...  thread 31
+#3 Molinfo processed 2600000 aligned reads...  thread 32
+#3 Molinfo processed 3100000 aligned reads...  thread 14
+#3 Molinfo processed 2900000 aligned reads...  thread 18
+#3 Molinfo processed 2800000 aligned reads...  thread 28
+#3 Molinfo processed 3000000 aligned reads...  thread 13
+#3 Molinfo processed 2900000 aligned reads...  thread 11
+#3 Molinfo processed 3100000 aligned reads...  thread 23
+#3 Molinfo processed 3000000 aligned reads...  thread 21
+#3 Molinfo processed 2600000 aligned reads...  thread 8
+#3 Molinfo processed 3100000 aligned reads...  thread 20
+#3 Molinfo processed 2700000 aligned reads...  thread 30
+#3 Molinfo processed 2900000 aligned reads...  thread 26
+#3 Molinfo processed 3100000 aligned reads...  thread 12
+#3 Molinfo processed 3000000 aligned reads...  thread 6
+#3 Molinfo processed 2700000 aligned reads...  thread 19
+#3 Molinfo processed 2700000 aligned reads...  thread 29
+#3 Molinfo processed 2900000 aligned reads...  thread 7
+#3 Molinfo processed 3000000 aligned reads...  thread 9
+#3 Molinfo processed 3100000 aligned reads...  thread 22
+#3 Molinfo processed 2900000 aligned reads...  thread 10
+#3 Molinfo processed 2700000 aligned reads...  thread 31
+#3 Molinfo processed 2800000 aligned reads...  thread 27
+#3 Molinfo processed 2700000 aligned reads...  thread 32
+#3 Molinfo processed 3000000 aligned reads...  thread 11
+#3 Molinfo processed 3100000 aligned reads...  thread 13
+#3 Molinfo processed 3000000 aligned reads...  thread 18
+#3 Molinfo processed 2900000 aligned reads...  thread 28
+#3 Molinfo processed 3100000 aligned reads...  thread 21
+#3 Molinfo processed 2700000 aligned reads...  thread 8
+#3 Molinfo processed 3000000 aligned reads...  thread 26
+#3 Molinfo processed 2800000 aligned reads...  thread 30
+#3 Molinfo processed 3100000 aligned reads...  thread 6
+#3 Molinfo processed 2800000 aligned reads...  thread 19
+#3 Molinfo processed 2800000 aligned reads...  thread 29
+#3 Molinfo processed 3000000 aligned reads...  thread 7
+#3 Molinfo processed 3100000 aligned reads...  thread 9
+#3 Molinfo processed 3000000 aligned reads...  thread 10
+#3 Molinfo processed 3100000 aligned reads...  thread 11
+#3 Molinfo processed 2800000 aligned reads...  thread 31
+#3 Molinfo processed 2900000 aligned reads...  thread 27
+#3 Molinfo processed 2800000 aligned reads...  thread 32
+#3 Molinfo processed 3100000 aligned reads...  thread 18
+#3 Molinfo processed 3000000 aligned reads...  thread 28
+#3 Molinfo processed 2800000 aligned reads...  thread 8
+#3 Molinfo processed 3100000 aligned reads...  thread 26
+#3 Molinfo processed 2900000 aligned reads...  thread 30
+#3 Molinfo processed 2900000 aligned reads...  thread 19
+#3 Molinfo processed 2900000 aligned reads...  thread 29
+#3 Molinfo processed 3100000 aligned reads...  thread 10
+#3 Molinfo processed 3100000 aligned reads...  thread 7
+#3 Molinfo processed 2900000 aligned reads...  thread 31
+#3 Molinfo processed 2900000 aligned reads...  thread 32
+#3 Molinfo processed 3000000 aligned reads...  thread 27
+#3 Molinfo processed 3100000 aligned reads...  thread 28
+#3 Molinfo processed 2900000 aligned reads...  thread 8
+#3 Molinfo processed 3000000 aligned reads...  thread 19
+#3 Molinfo processed 3000000 aligned reads...  thread 30
+#3 Molinfo processed 3000000 aligned reads...  thread 29
+#3 Molinfo processed 3000000 aligned reads...  thread 31
+#3 Molinfo processed 3000000 aligned reads...  thread 32
+#3 Molinfo processed 3100000 aligned reads...  thread 27
+#3 Molinfo processed 3000000 aligned reads...  thread 8
+#3 Molinfo processed 3100000 aligned reads...  thread 19
+#3 Molinfo processed 3100000 aligned reads...  thread 30
+#3 Molinfo processed 3100000 aligned reads...  thread 29
+#3 Molinfo processed 3100000 aligned reads...  thread 31
+#3 Molinfo processed 3100000 aligned reads...  thread 32
+#3 Molinfo processed 3100000 aligned reads...  thread 8
+#2 Combining 32 annotated bam parts
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk1.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk2.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk3.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk4.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk5.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk6.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk7.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk8.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk9.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk10.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk11.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk12.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk13.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk14.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk15.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk16.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk17.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk18.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk19.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk20.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk21.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk22.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk23.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk24.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk25.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk26.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk27.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk28.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk29.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk30.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk31.bam
+#3 bam part file analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.chunk32.bam
+# # Subproc: Call:   /nfs/home/jhuang45/.conda/envs/spipe/bin/samtools cat -b analysis/mclover3_D10_12_2024-07-09/process/temp1.temp -o analysis/mclover3_D10_12_2024-07-09/process/barcode_headAligned_anno.bam
+# Subproc: Status: Success
+# Subproc: Output: (first 100 char)
+
+# Subproc: Duration 0:00:32.09
+#2 Combining 32 transcript assignment parts
+# Wrote 18 x 2 table to analysis/mclover3_D10_12_2024-07-09/process/pre_align_stats.csv
+#2 PF_STAT_PIPE Row_1_of_20                                  value
+#2 PF_STAT_PIPE Row_2_of_20  statistic                            
+#2 PF_STAT_PIPE Row_3_of_20  bc1_perfrac              7.420000e-01
+#2 PF_STAT_PIPE Row_4_of_20  bc2_perfrac              8.240000e-01
+#2 PF_STAT_PIPE Row_5_of_20  bc3_perfrac              9.050000e-01
+#2 PF_STAT_PIPE Row_6_of_20  bc_edit_dist_0           1.163281e+08
+# Cleaning molinfo temp files
+# Compressing transcript assignments csv
+#2 MemStatus: Molinfo  2.8G proc, 484.4M rss, 2.3G vms, 1.0% usd, 1.9T avail
+#2 DskStatus: Molinfo  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+#2 MemStatus: Molinfo  2.8G proc, 484.4M rss, 2.3G vms, 1.0% usd, 1.9T avail
+#2 DskStatus: Molinfo  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# << Running Molinfo; Status True; Duration 0:53:57.56
+
+#2 MemStatus: DGE  2.8G proc, 484.4M rss, 2.3G vms, 1.0% usd, 1.9T avail
+#2 DskStatus: DGE  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# >> Running DGE
+#2 MemStatus: DGE  2.8G proc, 484.4M rss, 2.3G vms, 1.0% usd, 1.9T avail
+#2 DskStatus: DGE  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# Processing global (not per-sample) data
+#2 No map targets to screen
+# Processing data for 1 samples
+# DGE processing sample (1) F344_SHR_M_E007_E118
+#2 MemStatus: DGE_samp_1  2.8G proc, 484.5M rss, 2.3G vms, 1.0% usd, 1.9T avail
+#2 Read Dataframe: Dims 18 x 1, Mem 288B (288) from analysis/mclover3_D10_12_2024-07-09/process/pre_align_stats.csv
+#2 Read Dataframe: Dims 6 x 1, Mem 96B (96) from analysis/mclover3_D10_12_2024-07-09/process/sequencing_stats.csv
+#2 Loading transcript assignments from analysis/mclover3_D10_12_2024-07-09/process/tscp_assignment.csv.gz
+#2 DF 'tas_df': Dims 77769842 x 11, Mem 5.9G (6299357330)
+#2 Starting tscp records 77769842
+#2 Masking tscp to wells (D10-D12, n=3)
+#2 After sample-mask tscp records 3387014
+#2 Getting unfiltered DGE matrix
+# >> Getting DGE; F344_SHR_M_E007_E118 Unfiltered, Genes all, Barcodes TBD
+#2 Raw transcripts per cell (27378, 1)
+#2 Getting tscp cutoff to call cells
+#2 Cells filtered by tscp cutoff 10: cells 27183
+#2 dge_matrix (27183, 41802)
+#2 expressed_genes F344_SHR_M_E007_E118 Unfiltered, Genes all, Barcodes TBD, genes=20664
+#2 << DGE matrix F344_SHR_M_E007_E118 Unfiltered, Genes all, Barcodes TBD (27183, 41802), bc_indexes (27183,)
+#2 Matrix 27183 x 41802 = 1136303766 total; 2670861 (0.24%) >= 1; 124671 (0.01%) >= 3; 10111 (0.0%) >= 10
+# Wrote 27183 by 41802 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/DGE_unfiltered/count_matrix.mtx
+#2 Copy analysis/mclover3_D10_12_2024-07-09/process/all_genes.csv to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/DGE_unfiltered/all_genes.csv
+# Wrote 27183 x 12 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/DGE_unfiltered/cell_metadata.csv
+#2 SF_NU_CELL Row_1_of_27185                          sample            species  gene_count  tscp_count  mread_count bc1_wind bc2_wind bc3_wind bc1_well bc2_well bc3_well
+#2 SF_NU_CELL Row_2_of_27185  bc_wells                                                                                                                                    
+#2 SF_NU_CELL Row_3_of_27185  46_01_01  F344_SHR_M_E007_E118  rn7-mod1-mclover3          41          42           42       46        1        1      D10       A1       A1
+#2 SF_NU_CELL Row_4_of_27185  46_01_02  F344_SHR_M_E007_E118  rn7-mod1-mclover3          20          20           20       46        1        2      D10       A1       A2
+#2 SF_NU_CELL Row_5_of_27185  46_01_03  F344_SHR_M_E007_E118  rn7-mod1-mclover3          63          66           66       46        1        3      D10       A1       A3
+#2 SF_NU_CELL Row_6_of_27185  46_01_04  F344_SHR_M_E007_E118  rn7-mod1-mclover3          87          94           95       46        1        4      D10       A1       A4
+#2 Getting filtered DGE matrix
+# >> Getting DGE; F344_SHR_M_E007_E118 Filtered, Genes all, Barcodes TBD
+#2 Raw transcripts per cell (27378, 1)
+#2 Getting tscp cutoff to call cells
+#2 Calculating tscp cutoff; Cell min=10 (5), max=30000, Tscp min=30
+#2 Cell bounds scaled by 3 wells; min=5, max=1875
+#2 Transcript cutoff status True, thresh 341
+#2 Cells filtered by tscp cutoff 341: cells 1903
+#2 dge_matrix (1903, 41802)
+#2 expressed_genes F344_SHR_M_E007_E118 Filtered, Genes all, Barcodes TBD, genes=18925
+#2 << DGE matrix F344_SHR_M_E007_E118 Filtered, Genes all, Barcodes TBD (1903, 41802), bc_indexes (1903,)
+#2 Matrix 1903 x 41802 = 79549206 total; 1253742 (1.58%) >= 1; 112606 (0.14%) >= 3; 9907 (0.01%) >= 10
+# Wrote 1903 by 41802 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/DGE_filtered/count_matrix.mtx
+#2 Copy analysis/mclover3_D10_12_2024-07-09/process/all_genes.csv to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/DGE_filtered/all_genes.csv
+# Wrote 1903 x 12 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/DGE_filtered/cell_metadata.csv
+#2 SF_NF_CELL Row_1_of_1905                          sample            species  gene_count  tscp_count  mread_count bc1_wind bc2_wind bc3_wind bc1_well bc2_well bc3_well
+#2 SF_NF_CELL Row_2_of_1905  bc_wells                                                                                                                                    
+#2 SF_NF_CELL Row_3_of_1905  46_01_22  F344_SHR_M_E007_E118  rn7-mod1-mclover3        1213        2179         2205       46        1       22      D10       A1      B10
+#2 SF_NF_CELL Row_4_of_1905  46_01_37  F344_SHR_M_E007_E118  rn7-mod1-mclover3         850        1260         1271       46        1       37      D10       A1       D1
+#2 SF_NF_CELL Row_5_of_1905  46_01_43  F344_SHR_M_E007_E118  rn7-mod1-mclover3         727        1129         1139       46        1       43      D10       A1       D7
+#2 SF_NF_CELL Row_6_of_1905  46_01_45  F344_SHR_M_E007_E118  rn7-mod1-mclover3         481         636          641       46        1       45      D10       A1       D9
+# Wrote 18925 x 5 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/expressed_genes.csv
+#2 SFR_EXPRESS_GENE Row_1_of_18926                  gene_id gene_name             genome  cell_count  tscp_count
+#2 SFR_EXPRESS_GENE Row_2_of_18926  10       2510039O18Rikl            rn7-mod1-mclover3           8           8
+#2 SFR_EXPRESS_GENE Row_3_of_18926  60       6430548M08Rikl            rn7-mod1-mclover3         115         120
+#2 SFR_EXPRESS_GENE Row_4_of_18926  62                 A1cf            rn7-mod1-mclover3           1           1
+#2 SFR_EXPRESS_GENE Row_5_of_18926  63                  A2m            rn7-mod1-mclover3           5           5
+#2 SFR_EXPRESS_GENE Row_6_of_18926  64                A2ml1            rn7-mod1-mclover3           2           2
+# Wrote 33 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_cutoff_calc.csv
+#2 SFR_TSCP_CUTOFF Row_1_of_35                               value
+#2 SFR_TSCP_CUTOFF Row_2_of_35  statistic                         
+#2 SFR_TSCP_CUTOFF Row_3_of_35  cell_call          get_tscp_cutoff
+#2 SFR_TSCP_CUTOFF Row_4_of_35  cell_tscp_cutoff               341
+#2 SFR_TSCP_CUTOFF Row_5_of_35  cnt_scale_fac                  1.0
+#2 SFR_TSCP_CUTOFF Row_6_of_35  cv_slope_win                  0.02
+# Wrote 27378 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_counts.csv
+#2 SFR_TSCP_CT Row_1_of_27380            count
+#2 SFR_TSCP_CT Row_2_of_27380  bc_wells       
+#2 SFR_TSCP_CT Row_3_of_27380  46_01_01     42
+#2 SFR_TSCP_CT Row_4_of_27380  46_01_02     20
+#2 SFR_TSCP_CT Row_5_of_27380  46_01_03     66
+#2 SFR_TSCP_CT Row_6_of_27380  46_01_04     94
+# Wrote 1903 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/species_read_counts.csv
+#2 SFR_SPEC_READ_CT Row_1_of_1905            rn7-mod1-mclover3
+#2 SFR_SPEC_READ_CT Row_2_of_1905  bc_wells                   
+#2 SFR_SPEC_READ_CT Row_3_of_1905  46_01_22               2205
+#2 SFR_SPEC_READ_CT Row_4_of_1905  46_01_37               1271
+#2 SFR_SPEC_READ_CT Row_5_of_1905  46_01_43               1139
+#2 SFR_SPEC_READ_CT Row_6_of_1905  46_01_45                641
+# Wrote 1903 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/species_tscp_counts.csv
+#2 SFR_SPEC_TSCP_CT Row_1_of_1905            rn7-mod1-mclover3
+#2 SFR_SPEC_TSCP_CT Row_2_of_1905  bc_wells                   
+#2 SFR_SPEC_TSCP_CT Row_3_of_1905  46_01_22               2179
+#2 SFR_SPEC_TSCP_CT Row_4_of_1905  46_01_37               1260
+#2 SFR_SPEC_TSCP_CT Row_5_of_1905  46_01_43               1129
+#2 SFR_SPEC_TSCP_CT Row_6_of_1905  46_01_45                636
+# Wrote 3 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_median_by_rnd1_well.csv
+#2 SFR_TSCP_R1W Row_1_of_5        count
+#2 SFR_TSCP_R1W Row_2_of_5  well       
+#2 SFR_TSCP_R1W Row_3_of_5  D10     899
+#2 SFR_TSCP_R1W Row_4_of_5  D11     697
+#2 SFR_TSCP_R1W Row_5_of_5  D12     754
+# Wrote 96 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_median_by_rnd2_well.csv
+#2 SFR_TSCP_R2W Row_1_of_98        count
+#2 SFR_TSCP_R2W Row_2_of_98  well       
+#2 SFR_TSCP_R2W Row_3_of_98  A1      674
+#2 SFR_TSCP_R2W Row_4_of_98  A2      777
+#2 SFR_TSCP_R2W Row_5_of_98  A3      576
+#2 SFR_TSCP_R2W Row_6_of_98  A4      743
+# Wrote 95 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_median_by_rnd3_well.csv
+#2 SFR_TSCP_R3W Row_1_of_97        count
+#2 SFR_TSCP_R3W Row_2_of_97  well       
+#2 SFR_TSCP_R3W Row_3_of_97  A1      650
+#2 SFR_TSCP_R3W Row_4_of_97  A2      645
+#2 SFR_TSCP_R3W Row_5_of_97  A3      754
+#2 SFR_TSCP_R3W Row_6_of_97  A4      821
+# Wrote 3 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cell_counts_by_rnd1_well.csv
+#2 SFR_CELL_R1W Row_1_of_5        count
+#2 SFR_CELL_R1W Row_2_of_5  well       
+#2 SFR_CELL_R1W Row_3_of_5  D10     697
+#2 SFR_CELL_R1W Row_4_of_5  D11     600
+#2 SFR_CELL_R1W Row_5_of_5  D12     606
+# Wrote 96 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cell_counts_by_rnd2_well.csv
+#2 SFR_CELL_R2W Row_1_of_98        count
+#2 SFR_CELL_R2W Row_2_of_98  well       
+#2 SFR_CELL_R2W Row_3_of_98  A1       20
+#2 SFR_CELL_R2W Row_4_of_98  A2       15
+#2 SFR_CELL_R2W Row_5_of_98  A3       10
+#2 SFR_CELL_R2W Row_6_of_98  A4       16
+# Wrote 95 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cell_counts_by_rnd3_well.csv
+#2 SFR_CELL_R3W Row_1_of_97        count
+#2 SFR_CELL_R3W Row_2_of_97  well       
+#2 SFR_CELL_R3W Row_3_of_97  A1       13
+#2 SFR_CELL_R3W Row_4_of_97  A2        8
+#2 SFR_CELL_R3W Row_5_of_97  A3       20
+#2 SFR_CELL_R3W Row_6_of_97  A4       13
+# Wrote 6 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/sample_mrtg_counts.csv
+#2 SFR_SAMP_MRTG_CT Row_1_of_8                       count
+#2 SFR_SAMP_MRTG_CT Row_2_of_8  statistic                 
+#2 SFR_SAMP_MRTG_CT Row_3_of_8  cell_gene_count      18925
+#2 SFR_SAMP_MRTG_CT Row_4_of_8  cell_mread_count   1902510
+#2 SFR_SAMP_MRTG_CT Row_5_of_8  cell_tscp_count    1882124
+#2 SFR_SAMP_MRTG_CT Row_6_of_8  total_gene_count     20667
+#2 Read Dataframe: Dims 6 x 1, Mem 96B (96) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/sample_mrtg_counts.csv
+# Wrote 50 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/sample_all_stats.csv
+#2 SFR_ALLSTATS Row_1_of_52                                                    value
+#2 SFR_ALLSTATS Row_2_of_52  statistic                                              
+#2 SFR_ALLSTATS Row_3_of_52  bc1_perfrac                                7.420000e-01
+#2 SFR_ALLSTATS Row_4_of_52  bc2_perfrac                                8.240000e-01
+#2 SFR_ALLSTATS Row_5_of_52  bc3_perfrac                                9.050000e-01
+#2 SFR_ALLSTATS Row_6_of_52  bc1_Q30                                    9.510000e-01
+# Wrote 24 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/analysis_summary.csv
+#2 SFR_ASUM_CSV Row_1_of_26                                                    value
+#2 SFR_ASUM_CSV Row_2_of_26  statistic                                              
+#2 SFR_ASUM_CSV Row_3_of_26  sample_well_count                          3.000000e+00
+#2 SFR_ASUM_CSV Row_4_of_26  number_of_cells                            1.903000e+03
+#2 SFR_ASUM_CSV Row_5_of_26  rn7-mod1-mclover3_number_of_cells          1.903000e+03
+#2 SFR_ASUM_CSV Row_6_of_26  rn7-mod1-mclover3_median_tscp_per_cell     7.700000e+02
+#2 Getting read subsample stats
+#2 Subsampling 4 depths to 3648 for rn7-mod1-mclover3
+#3 Subsample depth[0] = 1000.0
+#3 Subsample depth[1] = 2000.0
+#3 Subsample depth[2] = 3000.0
+#3 Subsample depth[3] = 3647.7595857894003
+# Wrote 5 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/gene_counts_subsampled.csv
+#2 SFR_SS_GENE_CT Row_1_of_7               rn7-mod1-mclover3
+#2 SFR_SS_GENE_CT Row_2_of_7  subsample                     
+#2 SFR_SS_GENE_CT Row_3_of_7  0.000000                   0.0
+#2 SFR_SS_GENE_CT Row_4_of_7  1000.000000              187.0
+#2 SFR_SS_GENE_CT Row_5_of_7  2000.000000              340.0
+#2 SFR_SS_GENE_CT Row_6_of_7  3000.000000              476.0
+# Wrote 5 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_counts_subsampled.csv
+#2 SFR_SS_TSCP_CT Row_1_of_7               rn7-mod1-mclover3
+#2 SFR_SS_TSCP_CT Row_2_of_7  subsample                     
+#2 SFR_SS_TSCP_CT Row_3_of_7  0.000000                   0.0
+#2 SFR_SS_TSCP_CT Row_4_of_7  1000.000000              213.0
+#2 SFR_SS_TSCP_CT Row_5_of_7  2000.000000              426.0
+#2 SFR_SS_TSCP_CT Row_6_of_7  3000.000000              633.0
+# Aggregating sample analysis_summary csv files
+#2 Read Dataframe: Dims 24 x 1, Mem 384B (384) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/analysis_summary.csv
+# Wrote 24 x 2 table to analysis/mclover3_D10_12_2024-07-09/agg_samp_ana_summary.csv
+#2 SF_AGG_ASUM_CSV Row_1_of_26                                             F344_SHR_M_E007_E118
+#2 SF_AGG_ASUM_CSV Row_2_of_26  statistic                                                      
+#2 SF_AGG_ASUM_CSV Row_3_of_26  sample_well_count                                  3.000000e+00
+#2 SF_AGG_ASUM_CSV Row_4_of_26  number_of_cells                                    1.903000e+03
+#2 SF_AGG_ASUM_CSV Row_5_of_26  rn7-mod1-mclover3_number_of_cells                  1.903000e+03
+#2 SF_AGG_ASUM_CSV Row_6_of_26  rn7-mod1-mclover3_median_tscp_per_cell             7.700000e+02
+#2 MemStatus: DGE  13.2G proc, 5.7G rss, 7.5G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: DGE  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+#2 MemStatus: DGE  13.2G proc, 5.7G rss, 7.5G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: DGE  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# << Running DGE; Status True; Duration 0:02:17.87
+
+#2 MemStatus: Analysis  13.2G proc, 5.7G rss, 7.5G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Analysis  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# >> Running Analysis
+#2 MemStatus: Analysis  13.2G proc, 5.7G rss, 7.5G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Analysis  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# 
+# Analysis processing sample (1 of 1) F344_SHR_M_E007_E118
+#2 MemStatus: Analysis_samp_1  13.2G proc, 5.7G rss, 7.5G vms, 1.2% usd, 1.9T avail
+#2 Loaded anndata (1903, 41802) analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/DGE_filtered/
+#2 Calling Scanpy to cluster (adata shape (1903, 41802))
+#2 MemStatus: SCA_(1903,_41802)_function_scanpy_cluster_anndata_start,_rseed=42  13.2G proc, 5.7G rss, 7.5G vms, 1.2% usd, 1.9T avail
+#2 MemStatus: SCA_(1903,_14668)_After_filter_genes_3  13.1G proc, 5.7G rss, 7.5G vms, 1.2% usd, 1.9T avail
+#2 MemStatus: SCA_(1903,_14668)_After_normalize_total_target_sum=10000.0  13.1G proc, 5.7G rss, 7.5G vms, 1.2% usd, 1.9T avail
+#2 MemStatus: SCA_(1903,_14668)_After_log1p  13.1G proc, 5.7G rss, 7.5G vms, 1.2% usd, 1.9T avail
+#2 MemStatus: SCA_(1903,_14668)_After_highly_variable_genes  12.7G proc, 5.5G rss, 7.3G vms, 1.2% usd, 1.9T avail
+#2 MemStatus: SCA_(1903,_14668)_After_scale_(max=10.0,_zero_center=False)  12.7G proc, 5.5G rss, 7.3G vms, 1.2% usd, 1.9T avail
+#2 PCA using 3949 highly variable genes
+#2 PCA irlbpy, n_comps 50
+#2 PCA via irlbpy, input shape (1903, 3949), n_comps=50, use_hv=True, zero_center=True
+#2 MemStatus: SCA_(1903,_14668)_After_irlbpy;_Next_neighbors  12.9G proc, 5.5G rss, 7.4G vms, 1.2% usd, 1.9T avail
+#2 MemStatus: SCA_(1903,_14668)_After_neighbors,_n_neighbors=50;_Next_umap  14.5G proc, 5.5G rss, 9.0G vms, 1.2% usd, 1.9T avail
+#2 MemStatus: SCA_(1903,_14668)_After_umap,_min_dist=0.5  14.8G proc, 5.5G rss, 9.3G vms, 1.2% usd, 1.9T avail
+#2 Clustering (leiden)
+#2 MemStatus: SCA_(1903,_14668)_After_clustering_leiden,_done  14.8G proc, 5.5G rss, 9.3G vms, 1.2% usd, 1.9T avail
+#2 Wrote anndata: analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/DGE_filtered/anndata.h5ad
+# Wrote 1903 x 2 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cluster_assignment.csv
+#2 SFR_CLUST_ASSIGN Row_1_of_1905            cluster
+#2 SFR_CLUST_ASSIGN Row_2_of_1905  bc_wells         
+#2 SFR_CLUST_ASSIGN Row_3_of_1905  46_01_22        3
+#2 SFR_CLUST_ASSIGN Row_4_of_1905  46_01_37        1
+#2 SFR_CLUST_ASSIGN Row_5_of_1905  46_01_43        2
+#2 SFR_CLUST_ASSIGN Row_6_of_1905  46_01_45        2
+# Wrote 1903 x 3 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cluster_umap.csv
+#2 SFR_CLUST_UMAP Row_1_of_1905               umap_X   umap_Y
+#2 SFR_CLUST_UMAP Row_2_of_1905  bc_wells                    
+#2 SFR_CLUST_UMAP Row_3_of_1905  46_01_22  14.491600  -6.5259
+#2 SFR_CLUST_UMAP Row_4_of_1905  46_01_37  13.110600 -10.0010
+#2 SFR_CLUST_UMAP Row_5_of_1905  46_01_43  15.666500 -10.0656
+#2 SFR_CLUST_UMAP Row_6_of_1905  46_01_45  14.435500 -11.6645
+# Getting gene enrichment table, 8 clusters, top 20 genes each
+#3 Collecting, cluster 0
+#3 Collecting, cluster 1
+#3 Collecting, cluster 2
+#3 Collecting, cluster 3
+#3 Collecting, cluster 4
+#3 Collecting, cluster 5
+#3 Collecting, cluster 6
+#3 Collecting, cluster 7
+#3 Calculating, cluster 0
+#3 Calculating, cluster 1
+#3 Calculating, cluster 2
+#3 Calculating, cluster 3
+#3 Calculating, cluster 4
+#3 Calculating, cluster 5
+#3 Calculating, cluster 6
+#3 Calculating, cluster 7
+# Wrote 160 x 9 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cluster_diff_exp.csv
+#2 SFR_CLUST_DIFF_EXP Row_1_of_161       cluster       gene_id     gene_name             genome    score  log2_FC   pct1   pct2   pval_adj
+#2 SFR_CLUST_DIFF_EXP Row_2_of_161  0          1  LOC102547424  LOC102547424  rn7-mod1-mclover3   15.068    3.131  0.048  0.007  1.000e+00
+#2 SFR_CLUST_DIFF_EXP Row_3_of_161  1          1          Sim1          Sim1  rn7-mod1-mclover3   14.615    3.727  0.039  0.004  1.000e+00
+#2 SFR_CLUST_DIFF_EXP Row_4_of_161  2          1         Ect2l         Ect2l  rn7-mod1-mclover3    7.557    2.231  0.034  0.009  1.000e+00
+#2 SFR_CLUST_DIFF_EXP Row_5_of_161  3          1         Ndst4         Ndst4  rn7-mod1-mclover3    7.536    2.199  0.094  0.028  1.000e+00
+#2 SFR_CLUST_DIFF_EXP Row_6_of_161  4          1          Gpx3          Gpx3  rn7-mod1-mclover3    6.035    5.643  0.011  0.000  1.000e+00
+#2 MemStatus: Analysis  14.8G proc, 5.5G rss, 9.3G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Analysis  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+#2 MemStatus: Analysis  14.8G proc, 5.5G rss, 9.3G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Analysis  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# << Running Analysis; Status True; Duration 0:01:16.17
+
+#2 MemStatus: Reports  14.8G proc, 5.5G rss, 9.3G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Reports  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# >> Running Reports
+#2 MemStatus: Reports  14.8G proc, 5.5G rss, 9.3G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Reports  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# 
+# Report processing sample (1 of 1) F344_SHR_M_E007_E118
+#2 MemStatus: Report_samp_1  14.8G proc, 5.5G rss, 9.3G vms, 1.2% usd, 1.9T avail
+#2 Loaded anndata (1903, 14668) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/DGE_filtered/
+#2 Read Dataframe: Dims 50 x 1, Mem 800B (800) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/sample_all_stats.csv
+#2 Collecting stats to report
+#2 Generating plate figures
+#2 Read Dataframe: Dims 3 x 1, Mem 48B (48) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_median_by_rnd1_well.csv
+#2 Read Dataframe: Dims 3 x 1, Mem 48B (48) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cell_counts_by_rnd1_well.csv
+#2 Read Dataframe: Dims 96 x 1, Mem 1.5K (1536) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_median_by_rnd2_well.csv
+#2 Read Dataframe: Dims 96 x 1, Mem 1.5K (1536) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cell_counts_by_rnd2_well.csv
+#2 Read Dataframe: Dims 95 x 1, Mem 1.5K (1520) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_median_by_rnd3_well.csv
+#2 Read Dataframe: Dims 95 x 1, Mem 1.5K (1520) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cell_counts_by_rnd3_well.csv
+#2 Generating subsample plots
+#2 Read Dataframe: Dims 5 x 1, Mem 80B (80) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_counts_subsampled.csv
+#2 Read Dataframe: Dims 5 x 1, Mem 80B (80) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/gene_counts_subsampled.csv
+#2 Generating tscp cell count figure
+#2 Read Dataframe: Dims 27378 x 1, Mem 427.8K (438048) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/tscp_counts.csv
+#2 Rendering gene enrichment table (pb)
+#2 Read Dataframe: Dims 160 x 9, Mem 11.4K (11648) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cluster_diff_exp.csv
+#2 No cell subsampling for gex plots; All 1903
+#2 Read Dataframe: Dims 1903 x 2, Mem 44.6K (45672) from analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cluster_umap.csv
+# Wrote 1903 x 4 table to analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118/report/cluster_umap.csv
+#2 SFR_CLUST_UMAP Row_1_of_1905             umap_X   umap_Y  in_plot_ss
+#2 SFR_CLUST_UMAP Row_2_of_1905  bc_wells                              
+#2 SFR_CLUST_UMAP Row_3_of_1905  46_01_22  14.4916  -6.5259        True
+#2 SFR_CLUST_UMAP Row_4_of_1905  46_01_37  13.1106 -10.0010        True
+#2 SFR_CLUST_UMAP Row_5_of_1905  46_01_43  15.6665 -10.0656        True
+#2 SFR_CLUST_UMAP Row_6_of_1905  46_01_45  14.4355 -11.6645        True
+#2 Generating 4 umap cluster plot figures
+#2 Generating and saving umap cluster plot leiden
+#2 Generating and saving umap cluster plot gene_count
+#2 Generating and saving umap cluster plot mread_count
+#2 Packaging gene expression data for plots (14668 genes, 1903 cells)
+#2 Using 4 threads for multiprocessing
+# New report html: analysis/mclover3_D10_12_2024-07-09/F344_SHR_M_E007_E118_analysis_summary.html
+#2 MemStatus: Reports  14.4G proc, 5.5G rss, 8.8G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Reports  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+#2 MemStatus: Reports  14.4G proc, 5.5G rss, 8.8G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Reports  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# << Running Reports; Status True; Duration 0:00:13.57
+
+#2 MemStatus: Clean  14.4G proc, 5.5G rss, 8.8G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Clean  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# >> Running Clean
+#2 MemStatus: Clean  14.4G proc, 5.5G rss, 8.8G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Clean  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# Created new zip archive: analysis/mclover3_D10_12_2024-07-09/all_summaries.zip
+#2 Checking to remove 4 files
+#2   Removed 4
+#2 Not compressing temp files
+#2 MemStatus: Clean  14.4G proc, 5.5G rss, 8.8G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Clean  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+#2 MemStatus: Clean  14.4G proc, 5.5G rss, 8.8G vms, 1.2% usd, 1.9T avail
+#2 DskStatus: Clean  '/nalysis/' 3.6P total, 2.4P (66.89%) used, 1.0P (28.07%) free
+# << Running Clean; Status True; Duration 0:00:01.01
+
+# Finished successfully (0 problems)
+# Time	Total elapsed split-pipe v1.1.2	1:48:30.96
+# Time	All done split-pipe v1.1.2	2024-07-09 18:46:37.225636+0
